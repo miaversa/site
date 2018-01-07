@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% set page_metatitle = "Blog | #{post.title}" %}
+{% set page_metadescription = post.description %}
+
+{% set ogtype='post' %}
+
+{% block main %}
+<h1>{{ post.title }}</h1>
+
+{{ post.content|raw }}
+
+{% endblock %}

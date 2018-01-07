@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% set page_metatitle = collection.name %}
+{% set page_metadescription = collection.description %}
+
+{% set ogtype='collection' %}
+
+{% block main %}
+<h1>Collection {{ collection.name }}</h1>
+
+<h3>Ordem</h3>
+
+<select name="ordem" onchange="window.location = this.value">
+	<option value="/colecoes/{{collection.slug}}/">Ordenacao padrao</option>
+	<option value="/colecoes/{{collection.slug}}/mais-novos.html">Ordenar por mais novos</option>
+	<option value="/colecoes/{{collection.slug}}/mais-baratos.html">Ordenar por preco: menor para maior</option>
+	<option value="/colecoes/{{collection.slug}}/mais-caros.html">Ordenar por preco: maior para menor</option>
+</select>
+
+<hr />
+
+{#
+<h3>Filtros</h3>
+<ul>
+	<li><a href="/colecoes/{{collection.slug}}/index.html">Todos</a></li>
+	{% for t in types %}
+	<li><a href="/colecoes/{{collection.slug}}/{{ t.slug }}.html">{{ t.name }}</a></li>
+	{% endfor %}
+</ul>
+
+<hr />
+#}
+
+<h3>Produtos</h3>
+
+<ul>
+{% for p in products %}
+	<li><a href="/colecoes/{{p.collection.slug}}/{{p.slug}}.html">{{p.name}}</a></li>
+{% endfor %}
+</ul>
+
+<hr />
+
+{% endblock %}

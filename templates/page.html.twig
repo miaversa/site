@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% set page_metatitle = "#{site.name} | #{page.name}" %}
+{% set page_metadescription = page.description %}
+
+{% set ogtype='page' %}
+
+{% block main %}
+<div class="columns">
+<div class="column is-12">
+{{ page.content|raw }}
+</div>
+</div>
+{% endblock %}

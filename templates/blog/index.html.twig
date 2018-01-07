@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% set page_metatitle = "Blog da #{site.name}" %}
+{% set page_metadescription = 'saiba o que estamos fazendo no dia a dia aqui no blog' %}
+
+{% set ogtype='blogindex' %}
+
+{% block main %}
+
+<h1>blog index todo</h1>
+
+{% for p in posts %}
+<h2>{{ p.title }}</h2>
+{{ p.summary|raw }}
+<p><a href="{{site.postURL(p.slug)}}" title="p.description">continue lendo</a></p>
+{% endfor %}
+
+{% endblock %}
