@@ -18,10 +18,10 @@ final class Product
 
 	public function sign()
 	{
-		$salt = 's';
+		$salt = \Miaversa\get_salt();
 		$price = number_format($this->price, 2, ',', '.');
 		$sign = "#{$salt}#{$this->sku}#{$this->name}#{$price}#";
-		return $sign;
+		return sha1($sign);
 	}
 
 	public function __set($name, $value)

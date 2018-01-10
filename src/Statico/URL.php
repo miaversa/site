@@ -17,6 +17,11 @@ final class URL
 		return "{$this->site->baseURL}/";
 	}
 
+	public function cartURL() : string
+	{
+		return "{$this->site->cartURL}/";
+	}
+
 	public function relativeProductURL(Product $product) : string
 	{
 		$url = "/produtos/{$product->collection}/{$product->slug}/";
@@ -31,6 +36,27 @@ final class URL
 	public function productMediaURL(string $site, Product $product) : string
 	{
 		$url = "{$this->site->baseURL}/images/{$site}/{$product->slug}.jpg";
+		return $url;
+	}
+
+	public function relativeCollectionURL(Collection $collection, Type $type = null, $order = null) : string
+	{
+		if(is_array($order)) {
+			$order = $order['slug'];
+		}
+
+		$url = "/produtos/{$collection->slug}";
+
+		if( ! is_null($type)) {
+			$url .= "/{$type->slug}";
+		}
+
+		if( ! is_null($order)) {
+			$url .= "/{$order}";
+		}
+
+		$url .= '/';
+
 		return $url;
 	}
 }

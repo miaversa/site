@@ -25,7 +25,7 @@ Miaversa\render_collections($template);
 
 // index
 $content = $template->render('index.html.twig');
-file_put_contents(OUTPUT . '/index.html', $content);
+Miaversa\put_file('/index.html', $content);
 
 // images
 Miaversa\copy_images();

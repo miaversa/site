@@ -3,21 +3,17 @@ declare(strict_types=1);
 
 namespace Miaversa\Statico;
 
-final class Site
+final class Type
 {
+	public $slug;
 	public $name;
-	public $baseURL;
-	public $cartURL;
 	public $description;
-	public $twitter;
 
-	public function __construct(string $name, string $base, string $cart, string $desc, string $twitter)
+	public function __construct(string $slug, string $name, string $desc)
 	{
+		$this->slug = $slug;
 		$this->name = $name;
-		$this->baseURL = $base;
-		$this->cartURL = $cart;
 		$this->description = $desc;
-		$this->twitter = $twitter;
 	}
 
 	public function __set($name, $value)

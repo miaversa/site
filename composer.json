@@ -9,9 +9,13 @@
         },
         "files": [
             "lib/assets.php",
+            "lib/collections.php",
+            "lib/filters.php",
             "lib/functions.php",
             "lib/pages.php",
-            "lib/products.php"
+            "lib/products.php",
+            "lib/sort.php",
+            "lib/types.php"
         ]
     },
     "bin": ["bin/smake"]

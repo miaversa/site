@@ -4,53 +4,72 @@ declare(strict_types=1);
 namespace Miaversa;
 
 use Miaversa\Statico\Collection;
+use Miaversa\Statico\Type;
 
-function load_collections() : array
+function collections() : array
 {
 	$collections = [];
-
 	$file = CONTENT . '/site.json';
 	$colarr = fjson($file);
 	$colarr = $colarr['collections'];
-	foreach($colarr as $c)
-	{
+	foreach($colarr as $c) {
 		$collections[] = new Collection($c['slug'], $c['name'], $c['description']);
 	}
-
 	return $collections;
 }
 
-function popular_products_collection($collection) : array
+function render_index_collection(\Twig_Environment $template, Collection $collection, array $products, array $types, Type $type = null, array $order = null) : void
 {
-	$products = load_products();
+	$filename = "/produtos/{$collection->slug}";
 
-	usort($products, function($a, $b) {
-		if ($a->pop == $b->pop) {
-			return 0;
-		}
-		return ($a->pop > $b->pop) ? -1 : 1;
-	});
+	if( ! is_null($type)) {
+		$filename .= "/{$type->slug}";
+	}
 
-	return $products;
-}
+	if( ! is_null($order)) {
+		$filename .= "/{$order['slug']}";
+	}
 
-function render_index_collection(\Twig_Environment $template, $collection)
-{
-	$products = popular_products_collection($collection);
-	
-	$filename = OUTPUT . "/produtos/{$collection->slug}/index.html";
+	$filename .= "/index.html";
+
 	$content = $template->render('collection.html.twig', [
 		'collection' => $collection,
 		'products' => $products,
+		'types' => $types,
+		'type' => $type,
+		'order' => $order
 	]);
-	
-	file_put_contents($filename, $content);
+	put_file($filename, $content);
 }
 
 function render_collections(\Twig_Environment $template)
 {
-	$collections = load_collections();
+	$orders = [
+		['slug' => 'mais-baratos'],
+		['slug' => 'mais-caros'],
+		['slug' => 'mais-novos'],
+	];
+	
+	$all_types = types();
+	$collections = collections();
+	$all_products = products();
+
 	foreach($collections as $c) {
-		render_index_collection($template, $c);
+		$products = filter_products_in_collection($c, $all_products);
+		$types = filter_types_in_collection($c, $all_types, $all_products);
+
+		render_index_collection($template, $c, $products, $types);
+		foreach($orders as $order) {
+			$p = sort_products($products, $order['slug']);
+			render_index_collection($template, $c, $p, $types, null, $order);
+		}
+		
+		foreach($types as $type) {
+			$pint = filter_products_in_type($products, $type);
+			render_index_collection($template, $c, $pint, $types, $type, null);
+			foreach($orders as $order) {
+				render_index_collection($template, $c, $pint, $types, $type, $order);
+			}
+		}
 	}
 }

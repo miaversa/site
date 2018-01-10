@@ -5,7 +5,7 @@ namespace Miaversa;
 
 use Miaversa\Statico\Page;
 
-function load_page(string $file) : Page
+function page(string $file) : Page
 {
 	$meta = '';
 	$content = '';
@@ -30,9 +30,8 @@ function load_page(string $file) : Page
 function render_page(\Twig_Environment $template, string $filename) : void
 {
 	$src = CONTENT . "/pages/{$filename}";
-	$page = load_page($src);
-	$dst = OUTPUT . "/{$page->slug}/index.html";
-	ensure_dir(dirname($dst));
+	$page = page($src);
+	$dst = "/{$page->slug}/index.html";
 	$content = $template->render('page.html.twig', ['page' => $page]);
-	file_put_contents($dst, $content);
+	put_file($dst, $content);
 }

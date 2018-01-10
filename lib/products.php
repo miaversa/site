@@ -5,7 +5,7 @@ namespace Miaversa;
 
 use Miaversa\Statico\Product;
 
-function load_product(string $file) : Product
+function product(string $file) : Product
 {
 	$meta = '';
 	$content = '';
@@ -31,7 +31,8 @@ function load_product(string $file) : Product
 	$product->slug = $meta['slug'];
 	$product->type = $meta['type'];
 	$product->collection = $meta['collection'];
-	$product->date = $meta['date'];
+	$date = \DateTime::createFromFormat('Y-m-d', $meta['date']);
+	$product->date = $date;
 	$product->price = $meta['price'];
 	$product->description = $meta['description'];
 	$product->pop = $meta['pop'];
@@ -40,7 +41,7 @@ function load_product(string $file) : Product
 	return $product;
 }
 
-function load_products() : array
+function products() : array
 {
 	$products = [];
 
@@ -48,7 +49,7 @@ function load_products() : array
 	$files = glob($glog);
 
 	foreach($files as $file) {
-		$products[] = load_product($file);
+		$products[] = product($file);
 	}
 
 	return $products;
@@ -56,15 +57,14 @@ function load_products() : array
 
 function render_product(\Twig_Environment $template, Product $product) : void
 {
-	$filename = OUTPUT . "/produtos/{$product->collection}/{$product->slug}/index.html";
+	$filename = "/produtos/{$product->collection}/{$product->slug}/index.html";
 	$content = $template->render('product.html.twig', ['product' => $product]);
-	ensure_dir(dirname($filename));
-	file_put_contents($filename, $content);
+	put_file($filename, $content);
 }
 
 function render_products(\Twig_Environment $template) : void
 {
-	$products = load_products();
+	$products = products();
 	foreach($products as $product) {
 		render_product($template, $product);
 	}

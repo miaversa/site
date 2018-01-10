@@ -1,13 +1,27 @@
 {
     "name"            : "Miaversa",
     "baseURL"         : "https://miaversa.com.br",
+    "cartURL"         : "https://carrinho.miaversa.com.br",
     "description"     : "A misslola eh uma loja especializada",
 	"twitter"         : "miaversa",
+	"salt"            : "<salt>",
 	"collections"     : [
 		{
 			"slug"        : "letras",
 			"name"        : "Letras",
 			"description" : "Joias inspiradas no nosso alfabeto"
+		}
+	],
+	"types"           : [
+		{
+			"slug"        : "anel",
+			"name"        : "Anel",
+			"description" : "aneis legais"
+		},
+		{
+			"slug"        : "colar",
+			"name"        : "Colar",
+			"description" : "colares legais"
 		}
 	]
 }

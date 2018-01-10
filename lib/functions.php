@@ -12,6 +12,13 @@ function ensure_dir(string $dir) : void
 	}
 }
 
+function put_file(string $filename, string $content) : void
+{
+	$filename = OUTPUT . $filename;
+	ensure_dir(dirname($filename));
+	file_put_contents($filename, $content);
+}
+
 // json file to array
 function fjson(string $filename) : array
 {
@@ -26,12 +33,14 @@ function get_renderer(string $templates) : \Twig_Environment
 	return $twig;
 }
 
-function get_site(string $file) : Site
+function get_salt() : string
 {
-	$a = fjson(CONTENT . $file);
-	return new Site($a['name'], $a['baseURL'], $a['description'], $a['twitter']);
+	$a = fjson(CONTENT . '/site.json');
+	return $a['salt'];
 }
 
-
-// TODO: incluir no autoload do composer
-require __DIR__ . '/collections.php';
+function get_site() : Site
+{
+	$a = fjson(CONTENT . '/site.json');
+	return new Site($a['name'], $a['baseURL'], $a['cartURL'], $a['description'], $a['twitter']);
+}
