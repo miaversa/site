@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Miaversa;
+namespace Miaversa\Statico;
 
 final class Page
 {

@@ -1,12 +1,12 @@
 
 {% if 'product' == ogtype %}
     <meta property="og:type" content="product" />
-    <meta property="og:url" content="{{site.productURL(product)}}" />
+    <meta property="og:url" content="{{urls.productURL(product)}}" />
     <meta property="og:title" content="{{product.name}}" />
     <meta property="og:description" content="{{product.description}}" />
     <meta property="og:site_name" content="{{site.name}}" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:image" content="{{site.mediaURL('1200x630', product)}}" />
+    <meta property="og:image" content="{{urls.productMediaURL('1200x630', product)}}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 {% endif %}

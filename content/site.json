@@ -1,6 +1,13 @@
 {
     "name"            : "Miaversa",
-    "baseURL"         : "https://miaversa.com.br/",
+    "baseURL"         : "https://miaversa.com.br",
     "description"     : "A misslola eh uma loja especializada",
-	"twitter"         : "miaversa"
+	"twitter"         : "miaversa",
+	"collections"     : [
+		{
+			"slug"        : "letras",
+			"name"        : "Letras",
+			"description" : "Joias inspiradas no nosso alfabeto"
+		}
+	]
 }

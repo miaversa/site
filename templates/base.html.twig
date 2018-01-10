@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{page_metatitle}}</title>
     <meta name="description" content="{{page_metadescription}}" />
 
@@ -14,35 +14,13 @@
 </head>
 
 <body>
-<!-- Header -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
-<div class="container">
-	<div class="navbar-brand">
-		<h1 class="navbar-item"><a href="/"><img src="/assets/logo.png" width="112px" height="28px"/></a></h1>
-		<a href="#" class="navbar-item">instagram</a>
-	</div>
 
-	<div class="navbar-menu">
-		<div class="navbar-start">
-			<a class="navbar-item" href="/sobre.html" title="Conheça melhor nossa empresa">Sobre</a>
-			<a class="navbar-item" href="/exclusivos.html" title="Conheca nossos produtos exclusivos">Exclusivos</a>
-			<a class="navbar-item" href="/blog/" title="Acompanhe nosso blog">Blog</a>
-			<a class="navbar-item" href="/perguntas-frequentes.html" title="Tire suas duvidas aqui">FAQ</a>
-		</div>
-	</div>
-</div>
-</nav>
+<h1><a href="/">Miaversa</a></h1>
 
-<!-- End Header -->
+{% include 'components/menu.html.twig' %}
 
-<!-- Main Block -->
-<section class="container">
 {% block main %}
 {% endblock %}
-</section>
-<!-- End Main Block -->
 
-{% block lastscript %}
-{% endblock %}
 </body>
 </html>

@@ -11,12 +11,21 @@ $site = Miaversa\get_site('/site.json');
 
 $template = Miaversa\get_renderer('/templates');
 $template->addGlobal('site', $site);
-$template->addGlobal('urls', new Miaversa\URL($site));
-
+$template->addGlobal('urls', new Miaversa\Statico\URL($site));
 
 // pages
-Miaversa\render_page($template, '/pages/sobre.html', '/sobre.html');
-Miaversa\render_page($template, '/pages/perguntas-frequentes.html', '/perguntas-frequentes.html');
+Miaversa\render_page($template, 'sobre.html');
+Miaversa\render_page($template, 'perguntas-frequentes.html');
 
+// products
+Miaversa\render_products($template);
+
+// collections
+Miaversa\render_collections($template);
+
+// index
 $content = $template->render('index.html.twig');
 file_put_contents(OUTPUT . '/index.html', $content);
+
+// images
+Miaversa\copy_images();

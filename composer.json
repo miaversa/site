@@ -1,16 +1,17 @@
 {
     "require": {
-        "php": "~7.2",
-        "twig/twig": "^2.4",
-        "dompdf/dompdf": "^0.8.2",
-        "doctrine/orm": "^2.6"
+        "php": "~7.1",
+        "twig/twig": "^2.4"
     },
     "autoload": {
         "psr-4": {
             "Miaversa\\": "src/"
         },
         "files": [
-            "lib/functions.php"
+            "lib/assets.php",
+            "lib/functions.php",
+            "lib/pages.php",
+            "lib/products.php"
         ]
     },
     "bin": ["bin/smake"]

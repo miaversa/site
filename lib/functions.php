@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Miaversa;
 
+use Miaversa\Statico\Site;
+
 function ensure_dir(string $dir) : void
 {
 	if ( ! is_dir($dir)) {
@@ -30,37 +32,6 @@ function get_site(string $file) : Site
 	return new Site($a['name'], $a['baseURL'], $a['description'], $a['twitter']);
 }
 
-function load_page(string $file) : Page
-{
-	$meta = [];
-	$content = '';
-	$contentStep = 0;
-	$fileLines = file($file);
 
-	foreach($fileLines as $line) {
-		if('#' == substr($line, 0, 1)) {
-			$contentStep++;
-			continue;
-		}
-
-		if($contentStep >= 1) {
-			$content .= $line;
-		} else {
-			$line = trim($line);
-			$m = explode('=', $line);
-			$meta[trim($m[0])] = trim($m[1]);
-		}
-	}
-
-	return new Page($meta['slug'], $meta['name'], $meta['description'], $content);
-}
-
-function render_page($template, $src, $dst) : void
-{
-	$src = CONTENT . $src;
-	$dst = OUTPUT . $dst;
-
-	$page = load_page($src);
-	$content = $template->render('page.html.twig', ['page' => $page]);
-	file_put_contents($dst, $content);
-}
+// TODO: incluir no autoload do composer
+require __DIR__ . '/collections.php';

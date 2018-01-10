@@ -5,8 +5,8 @@
     <meta name="twitter:creator" content="@{{site.twitter}}">
     <meta name="twitter:title" content="{{product.name}}" />
     <meta name="twitter:description" content="{{product.description}}" />
-    <meta name="twitter:url" content="{{site.productURL(product)}}" />
-    <meta name="twitter:image" content="{{site.mediaURL('2600x1300', product)}}" />
+    <meta name="twitter:url" content="{{urls.productURL(product)}}" />
+    <meta name="twitter:image" content="{{urls.productMediaURL('2600x1300', product)}}" />
 {% endif %}
 
 {% if 'index' == ogtype %}
