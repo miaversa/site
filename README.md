@@ -13,9 +13,10 @@ No diretório `bin` encontra-se os executáveis.
 O comando `smake` gera o site e espera uma variável de ambiente chamada `SALT`.
 O `SALT` serve para assinar as chamadas para o carrinho de compras de forma segura.
 
-Exemplo:
-SALT=<super-seguro> bin\smake
+### Exemplo de chamada do comando
+
+    SALT=<super-seguro> bin\smake
 
 O comando `html5validator` é um atalho para chamar o validador nu.
 
-O comando update é um atalho para atualizar o bucket S3.
+O comando `update` é um atalho para atualizar o bucket S3.
