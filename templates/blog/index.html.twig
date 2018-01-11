@@ -12,7 +12,7 @@
 {% for p in posts %}
 <h2>{{ p.title }}</h2>
 {{ p.summary|raw }}
-<p><a href="{{site.postURL(p.slug)}}" title="p.description">continue lendo</a></p>
+<p><a href="{{urls.relativePostURL(p)}}" title="{{p.description}}">continue lendo</a></p>
 {% endfor %}
 
 {% endblock %}

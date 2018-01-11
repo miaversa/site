@@ -70,9 +70,16 @@ final class URL
 		return $url;
 	}
 
-	public function sitemapURL()
+	public function sitemapURL() : string
 	{
 		$url = "{$this->site->baseURL}/sitemap.xml";
+		return $url;
+	}
+
+	public function relativePostURL(Post $post) : string
+	{
+		$datepart = $post->dateTime->format("Y/m");
+		$url = "/blog/{$datepart}/{$post->slug}/";
 		return $url;
 	}
 }

@@ -22,6 +22,9 @@ Miaversa\render_products($template);
 // collections
 Miaversa\render_collections($template);
 
+// blog
+Miaversa\render_blog($template);
+
 // index
 Miaversa\index($template);
 Miaversa\robots($template);

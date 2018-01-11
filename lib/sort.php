@@ -24,3 +24,13 @@ function sort_products(array $products, string $order) : array
 
 	return $products;
 }
+
+function sort_posts(array $posts) : array
+{
+	usort($posts, function($a, $b) {
+		if ($a->dateTime == $b->dateTime) {return 0;}
+		return ($a->dateTime < $b->dateTime) ? -1 : 1;
+	});
+
+	return $posts;
+}

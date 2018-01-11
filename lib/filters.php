@@ -48,3 +48,25 @@ function filter_types_in_collection(Collection $collection, array $alltypes, arr
 
 	return $types;
 }
+
+function filter_posts_in_year(array $allposts, $year) : array
+{
+	$posts = [];
+	foreach($allposts as $post) {
+		if($post->dateTime->format('Y') == $year) {
+			$posts[] = $post;
+		}
+	}
+	return $posts;
+}
+
+function filter_posts_in_month(array $allposts, $month) : array
+{
+	$posts = [];
+	foreach($allposts as $post) {
+		if($post->dateTime->format('Y/m') == $month) {
+			$posts[] = $post;
+		}
+	}
+	return $posts;
+}
