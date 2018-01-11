@@ -1,10 +1,9 @@
 {
-    "name"            : "Miaversa",
-    "baseURL"         : "https://miaversa.com.br",
-    "cartURL"         : "https://carrinho.miaversa.com.br",
-    "description"     : "A misslola eh uma loja especializada",
+	"name"            : "Miaversa",
+	"baseURL"         : "https://miaversa.com.br",
+	"cartURL"         : "https://carrinho.miaversa.com.br",
+	"description"     : "A Miaversa eh uma loja especializada",
 	"twitter"         : "miaversa",
-	"salt"            : "<salt>",
 	"collections"     : [
 		{
 			"slug"        : "letras",

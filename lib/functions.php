@@ -35,8 +35,7 @@ function get_renderer(string $templates) : \Twig_Environment
 
 function get_salt() : string
 {
-	$a = fjson(CONTENT . '/site.json');
-	return $a['salt'];
+	return getenv('SALT');
 }
 
 function get_site() : Site
