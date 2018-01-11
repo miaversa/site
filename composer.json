@@ -12,8 +12,11 @@
             "lib/collections.php",
             "lib/filters.php",
             "lib/functions.php",
+            "lib/index.php",
             "lib/pages.php",
             "lib/products.php",
+            "lib/robots.php",
+            "lib/sitemap.php",
             "lib/sort.php",
             "lib/types.php"
         ]

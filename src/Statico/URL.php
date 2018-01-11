@@ -17,6 +17,16 @@ final class URL
 		return "{$this->site->baseURL}/";
 	}
 
+	public function relativePageURL(Page $page) : string
+	{
+		return "{$page->slug}/";
+	}
+
+	public function pageURL(Page $page) : string
+	{
+		return $this->siteURL() . $this->relativePageURL($page);
+	}
+
 	public function cartURL() : string
 	{
 		return "{$this->site->cartURL}/";
@@ -30,7 +40,7 @@ final class URL
 
 	public function productURL(Product $product) : string
 	{
-		return $this->site->baseURL . $this->relativeProductURL($product);;
+		return $this->site->baseURL . $this->relativeProductURL($product);
 	}
 
 	public function productMediaURL(string $site, Product $product) : string
@@ -57,6 +67,12 @@ final class URL
 
 		$url .= '/';
 
+		return $url;
+	}
+
+	public function sitemapURL()
+	{
+		$url = "{$this->site->baseURL}/sitemap.xml";
 		return $url;
 	}
 }

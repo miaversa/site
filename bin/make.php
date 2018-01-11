@@ -14,8 +14,7 @@ $template->addGlobal('site', $site);
 $template->addGlobal('urls', new Miaversa\Statico\URL($site));
 
 // pages
-Miaversa\render_page($template, 'sobre.html');
-Miaversa\render_page($template, 'perguntas-frequentes.html');
+Miaversa\render_pages($template);
 
 // products
 Miaversa\render_products($template);
@@ -24,8 +23,9 @@ Miaversa\render_products($template);
 Miaversa\render_collections($template);
 
 // index
-$content = $template->render('index.html.twig');
-Miaversa\put_file('/index.html', $content);
+Miaversa\index($template);
+Miaversa\robots($template);
+Miaversa\sitemap($template);
 
 // images
 Miaversa\copy_images();

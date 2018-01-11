@@ -18,7 +18,7 @@ function collections() : array
 	return $collections;
 }
 
-function render_index_collection(\Twig_Environment $template, Collection $collection, array $products, array $types, Type $type = null, array $order = null) : void
+function render_collection(\Twig_Environment $template, Collection $collection, array $products, array $types, Type $type = null, array $order = null) : void
 {
 	$filename = "/produtos/{$collection->slug}";
 
@@ -58,17 +58,17 @@ function render_collections(\Twig_Environment $template)
 		$products = filter_products_in_collection($c, $all_products);
 		$types = filter_types_in_collection($c, $all_types, $all_products);
 
-		render_index_collection($template, $c, $products, $types);
+		render_collection($template, $c, $products, $types);
 		foreach($orders as $order) {
 			$p = sort_products($products, $order['slug']);
-			render_index_collection($template, $c, $p, $types, null, $order);
+			render_collection($template, $c, $p, $types, null, $order);
 		}
 		
 		foreach($types as $type) {
 			$pint = filter_products_in_type($products, $type);
-			render_index_collection($template, $c, $pint, $types, $type, null);
+			render_collection($template, $c, $pint, $types, $type, null);
 			foreach($orders as $order) {
-				render_index_collection($template, $c, $pint, $types, $type, $order);
+				render_collection($template, $c, $pint, $types, $type, $order);
 			}
 		}
 	}
