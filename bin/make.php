@@ -18,6 +18,8 @@ function main() {
 	$template->addGlobal('site', $site);
 	$template->addGlobal('urls', new Miaversa\Statico\URL($site));
 
+	Miaversa\validate();
+
 	Miaversa\render_pages($template);
 	Miaversa\render_products($template);
 	Miaversa\render_collections($template);

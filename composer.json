@@ -9,6 +9,7 @@
         },
         "files": [
             "lib/assets.php",
+            "lib/blog.php",
             "lib/collections.php",
             "lib/filters.php",
             "lib/functions.php",
@@ -18,7 +19,8 @@
             "lib/robots.php",
             "lib/sitemap.php",
             "lib/sort.php",
-            "lib/types.php"
+            "lib/types.php",
+            "lib/validations.php"
         ]
     },
     "bin": ["bin/smake"]

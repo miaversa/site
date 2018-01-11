@@ -1,12 +1,5 @@
-
-{% if 'pproduct' == ogtype %}
-	<script type="application/ld+json">
-	{{product.ld()|raw}}
-	</script>
+{% if 'product' == ogtype %}
+	<script type="application/ld+json">{{urls.productLD(product)|raw}}</script>
 {% endif %}
-
-{% if 'pindex' == ogtype %}
-	<script type="application/ld+json">
-	{{site.ld()|raw}}
-	</script>
+{% if 'pindex' == ogtype %}<script type="application/ld+json">{{site.ld()|raw}}</script>
 {% endif %}

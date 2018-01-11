@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{page_metatitle}}</title>
     <meta name="description" content="{{page_metadescription}}" />
-
-    {%- include 'components/open_graph.html.twig' %}
-    {%- include 'components/twitter.html.twig' %}
-	{%- include 'components/ld.html.twig' %}
+{% include 'components/open_graph.html.twig' %}
+{% include 'components/twitter.html.twig' %}
+{% include 'components/ld.html.twig' %}
 </head>
 
 <body>

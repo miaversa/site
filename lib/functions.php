@@ -43,7 +43,3 @@ function get_site() : Site
 	$a = fjson(CONTENT . '/site.json');
 	return new Site($a['name'], $a['baseURL'], $a['cartURL'], $a['description'], $a['twitter']);
 }
-
-
-// TODO: remover
-require __DIR__ . '/blog.php';
