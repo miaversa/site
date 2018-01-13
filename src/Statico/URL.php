@@ -17,6 +17,11 @@ final class URL
 		return "{$this->site->baseURL}/";
 	}
 
+	public function cartURL() : string
+	{
+		return "{$this->site->cartURL}/";
+	}
+
 	public function relativePageURL(Page $page) : string
 	{
 		return "{$page->slug}/";
@@ -25,11 +30,6 @@ final class URL
 	public function pageURL(Page $page) : string
 	{
 		return $this->siteURL() . $this->relativePageURL($page);
-	}
-
-	public function cartURL() : string
-	{
-		return "{$this->site->cartURL}/";
 	}
 
 	public function relativeProductURL(Product $product) : string

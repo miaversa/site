@@ -9,7 +9,7 @@
 <h1>{{ product.name }}</h1>
 <p>Valor: R$ {{product.price|number_format(2, ',', '.')}}</p>
 
-<form method="post" action="https://carrinho.miaversa.com.br">
+<form method="post" action="{{urls.cartURL()}}">
 	<input type="hidden" name="action" value="add">
 	<input type="hidden" name="product[sku]" value="{{product.sku}}" />
 	<input type="hidden" name="product[name]" value="{{product.name}}" />

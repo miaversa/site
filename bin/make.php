@@ -12,6 +12,9 @@ if(false === getenv('SALT')) {
 	exit();
 }
 
+$debug = intval(getenv('DEBUG'));
+define('DEBUG', $debug);
+
 function main() {
 	$site = Miaversa\get_site('/site.json');
 	$template = Miaversa\get_renderer('/templates');

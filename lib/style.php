@@ -121,7 +121,11 @@ function style(string $filename) : void
 	$content = file_get_contents($filename);
 	$styles = get_styles($content);
 	$css = build_style_for($styles);
-	$css = compress_style($css);
+	
+	if(DEBUG <= 0) {
+		$css = compress_style($css);
+	}
+	
 	$content = str_replace('body{color:#333;}', $css, $content);
 	file_put_contents($filename, $content);
 }
