@@ -41,5 +41,8 @@ function get_salt() : string
 function get_site() : Site
 {
 	$a = fjson(CONTENT . '/site.json');
-	return new Site($a['name'], $a['baseURL'], $a['cartURL'], $a['description'], $a['twitter']);
+	return new Site($a['name'], $a['baseURL'], $a['cartURL'], $a['description'], $a['twitter'], $a['analytics']);
 }
+
+// TODO: remover
+require __DIR__ . '/style.php';

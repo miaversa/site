@@ -28,6 +28,8 @@ function main() {
 	Miaversa\robots($template);
 	Miaversa\sitemap($template);
 	Miaversa\copy_images();
+
+	Miaversa\styles();
 }
 
 main();

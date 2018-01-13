@@ -4,6 +4,7 @@
 	"cartURL"         : "https://carrinho.miaversa.com.br",
 	"description"     : "A Miaversa eh uma loja especializada",
 	"twitter"         : "miaversa",
+	"analytics"       : "UA-112427178-1",
 	"collections"     : [
 		{
 			"slug"        : "letras",
