@@ -91,6 +91,11 @@ function build_style_for(array $styles) : string
 
 function compress_style($content) : string
 {
+	$command = ROOT . '/node_modules/crass/bin/crass';
+	$tmpfname = tempnam("/tmp", "site");
+	file_put_contents($tmpfname, $content);
+	$content = exec("{$command} {$tmpfname} --optimize");
+	unlink($tmpfname);
 	return $content;
 }
 
