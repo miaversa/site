@@ -23,26 +23,29 @@
 	</script>
 </head>
 
-<body class="w-100 sans-serif">
-
-<header class="bb b--black-10 w-100 pa2 ph2 ph4-ns bg-white">
+<body class="w-100 sans-serif bg-white black-70">
+<header class="bb b--black-10 w-100 pa2 ph2 ph4-ns">
 	<div class="db dt-ns mw9 center w-100">
 		<h1 class="db dtc-ns v-mid tl w-50 mt0"><a class="dib f5 f4-ns fw6 mt0 mb1 link black-70" href="/">{{site.name}}</a></h1>
 		<nav class="db dtc-ns v-mid w-100 tl tr-ns mt0">
-			<a title="Sobre a Miaversa" href="/sobre/" class="f6 fw6 hover-blue link black-70 mr2 mr3-m mr4-l dib">Sobre</a>
-			<a title="Nosso Blog" href="/blog/" class="f6 fw6 hover-blue link black-70 mr2 mr3-m mr4-l dib">Blog</a>
-			<a title="Tire suas dúvidas na página de perguntas frequentes" href="/perguntas-frequentes/" class="f6 fw6 hover-blue link black-70 mr2 mr3-m mr4-l dib">FAQ</a>
-			<a title="Carrinho de compras" href="{{urls.cartURL()}}" class="f6 fw6 hover-blue link black-70 mr2 mr3-m mr4-l dn dib-l">Carrinho</a>
+			<a title="Sobre a Miaversa" href="/sobre/" class="f6 fw6 hover-light-red link black-70 mr2 mr3-m mr4-l dib">Sobre</a>
+			<a title="Nosso Blog" href="/blog/" class="f6 fw6 hover-light-red link black-70 mr2 mr3-m mr4-l dib">Blog</a>
+			<a title="Tire suas dúvidas na página de perguntas frequentes" href="/perguntas-frequentes/" class="f6 fw6 hover-light-red link black-70 mr2 mr3-m mr4-l dib">FAQ</a>
+			<a title="Carrinho de compras" href="{{urls.cartURL()}}" class="f6 fw6 hover-red link light-red mr2 mr3-m mr4-l dn dib-l">Carrinho</a>
 		</nav>
 	</div>
 </header>
 
-<main class="overflow-auto bg-white">
-
 {% block main %}
 {% endblock %}
 
-</main>
-
+<footer class="pv4 ph3 ph5-m ph6-l mid-gray">
+	<small class="f6 db tc">© 2018 <b class="ttu">MIAVERSA</b>., todos os direitos reservados</small>
+	<div class="tc mt3">
+		<a href="/language/" title="Language" class="f6 dib ph2 link mid-gray dim">Language</a>
+		<a href="/terms/"    title="Terms" class="f6 dib ph2 link mid-gray dim">Terms of Use</a>
+		<a href="/privacy/"  title="Privacy" class="f6 dib ph2 link mid-gray dim">Privacy</a>
+	</div>
+</footer>
 </body>
 </html>

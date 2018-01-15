@@ -7,16 +7,13 @@
 
 {% block main %}
 
-<nav aria-label="breadcrumb">
-	<ol>
-		<li><a href="/" title="Página inicial Miaversa">Miaversa</a></li>
-		<li><a href="/blog/" title="Blog da Miaversa">Blog</a></li>
-		<li aria-current="page">{{ post.title }}</li>
-	</ol>
-</nav>
-
-<h1>{{ post.title }}</h1>
+<div class="pa3 ph4-ns ph6-l bb b--black-10">
+<header>
+	<h2>{{ post.title }}</h2>
+</header>
 
 {{ post.content|raw }}
+
+</div>
 
 {% endblock %}

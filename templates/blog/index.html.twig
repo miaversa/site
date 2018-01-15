@@ -6,24 +6,32 @@
 {% set ogtype='blogindex' %}
 
 {% block main %}
+<div class="mw9 center ph3-ns">
+<div class="cf ph2-ns">
 
-<nav aria-label="breadcrumb">
-	<ol>
-		<li><a href="/" title="Página inicial Miaversa">Miaversa</a></li>
-		<li aria-current="page">Blog</li>
-	</ol>
-</nav>
+	<main class="fl w-100 w-80-l pa2">
+	{% for p in posts %}
+		<h2><a class="link underline-hover light-red" href="{{urls.relativePostURL(p)}}" title="{{p.description}}">{{ p.title }}</a></h2>
+		{{ p.summary|raw }}
+		<p><a class="link underline-hover light-red" href="{{urls.relativePostURL(p)}}" title="{{p.description}}">continue lendo este post...</a></p>
+	{% endfor %}
+	</main>
 
-<h1>blog index todo</h1>
+	<aside class="fl w-100 w-20-l pa2">
+		<h3>Posts por Data:</h3>
+		<ol class="list nested-list-reset">
+			<li><a class="link light-red hover-red" href="">2019</a>
+				<ol>
+					<li><a class="link light-red hover-red" href="">Mar / 2019</a></li>
+					<li><a class="link light-red hover-red" href="">Fev / 2019</a></li>
+					<li><a class="link light-red hover-red" href="">Jan / 2019</a></li>
+				</ol>
+			</li>
+			<li><a class="link light-red hover-red" href="">2019</a></li>
+			<li><a class="link light-red hover-red" href="">2019</a></li>
+		</ol>
+	</aside>
 
-{% for p in posts %}
-
-<div class="pa3 ph6-ns bb b--black-10">
-<h2><a href="{{urls.relativePostURL(p)}}" title="{{p.description}}">{{ p.title }}</a></h2>
-{{ p.summary|raw }}
-<p><a href="{{urls.relativePostURL(p)}}" title="{{p.description}}">continue lendo</a></p>
 </div>
-
-{% endfor %}
-
+</div>
 {% endblock %}

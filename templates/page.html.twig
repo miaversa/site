@@ -6,10 +6,12 @@
 {% set ogtype='page' %}
 
 {% block main %}
-
-<div class="pa3 pa5-ns">
-
-{{ page.content|raw }}
-
-</div>
+<main class="overflow-auto">
+	<header class="ph3 ph4-ns ph6-l">
+		<h2 class="light-red">{{page.name}}</h2>
+	</header>
+	<div class="ph3 ph4-ns ph6-l">
+	{{ page.content|raw }}
+	</div>
+</main>
 {% endblock %}
