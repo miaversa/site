@@ -7,12 +7,23 @@
 
 {% block main %}
 
+<nav aria-label="breadcrumb">
+	<ol>
+		<li><a href="/" title="Página inicial Miaversa">Miaversa</a></li>
+		<li aria-current="page">Blog</li>
+	</ol>
+</nav>
+
 <h1>blog index todo</h1>
 
 {% for p in posts %}
-<h2>{{ p.title }}</h2>
+
+<div class="pa3 ph6-ns bb b--black-10">
+<h2><a href="{{urls.relativePostURL(p)}}" title="{{p.description}}">{{ p.title }}</a></h2>
 {{ p.summary|raw }}
 <p><a href="{{urls.relativePostURL(p)}}" title="{{p.description}}">continue lendo</a></p>
+</div>
+
 {% endfor %}
 
 {% endblock %}

@@ -6,7 +6,23 @@
 {% set ogtype='product' %}
 
 {% block main %}
-<h1>{{ product.name }}</h1>
+
+<nav aria-label="breadcrumb">
+	<ol class="db">
+		<li class="list di"><a href="/" title="Página inicial Miaversa">Miaversa</a></li>
+		<li class="list di bc"><a href="{{urls.simpleCollectionURL(product)}}" title="Coleção x">colecao aqui</a></li>
+		<li class="list di bc"><a href="{{urls.simpleCollectionURL(product)}}" title="Coleção x">tipo aqui</a></li>
+		<li class="list di bc" aria-current="page">{{ product.name }}</li>
+	</ol>
+</nav>
+
+<header class="pb3 mb3">
+	<div class="ph3 ph5-ns">
+		<h2 class="ttu tracked f4">{{ product.name }}</h2>
+	</div>
+</header>
+
+<div class="ph3 ph5-ns">
 <p>Valor: R$ {{product.price|number_format(2, ',', '.')}}</p>
 
 <form method="post" action="{{urls.cartURL()}}">
@@ -19,5 +35,7 @@
 </form>
 
 {{product.content|raw}}
+
+</div>
 
 {% endblock %}

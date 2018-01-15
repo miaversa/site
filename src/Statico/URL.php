@@ -49,6 +49,12 @@ final class URL
 		return $url;
 	}
 
+	public function simpleCollectionURL(Product $product) : string
+	{
+		$url = "/produtos/{$product->collection}/";
+		return $url;
+	}
+
 	public function relativeCollectionURL(Collection $collection, Type $type = null, $order = null) : string
 	{
 		if(is_array($order)) {
