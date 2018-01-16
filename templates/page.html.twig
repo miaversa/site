@@ -1,17 +1,16 @@
 {% extends "base.html.twig" %}
-
 {% set page_metatitle = "#{site.name} | #{page.name}" %}
 {% set page_metadescription = page.description %}
-
 {% set ogtype='page' %}
 
+
+
 {% block main %}
-<main class="overflow-auto">
-	<header class="ph3 ph4-ns ph6-l">
+<main class="mw8 center ph2 ph3-ns ph5-l">
+	<header>
 		<h2 class="light-red">{{page.name}}</h2>
 	</header>
-	<div class="ph3 ph4-ns ph6-l">
+	
 	{{ page.content|raw }}
-	</div>
 </main>
 {% endblock %}

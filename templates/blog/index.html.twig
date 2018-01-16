@@ -6,10 +6,10 @@
 {% set ogtype='blogindex' %}
 
 {% block main %}
-<div class="mw9 center ph3-ns">
-<div class="cf ph2-ns">
+<div class="mw8 center ph2 ph3-ns ph5-l">
+<div class="cf">
 
-	<main class="fl w-100 w-80-l pa2">
+	<main class="fl w-100 w-80-l">
 	{% for p in posts %}
 		<h2><a class="link underline-hover light-red" href="{{urls.relativePostURL(p)}}" title="{{p.description}}">{{ p.title }}</a></h2>
 		{{ p.summary|raw }}
@@ -17,7 +17,7 @@
 	{% endfor %}
 	</main>
 
-	<aside class="fl w-100 w-20-l pa2">
+	<aside class="fl w-100 w-20-l">
 		<h3>Posts por Data:</h3>
 		<ol class="list nested-list-reset">
 			<li><a class="link light-red hover-red" href="">2019</a>
