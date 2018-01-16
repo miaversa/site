@@ -14,6 +14,7 @@
 	<style>
 	body{color:#333;}
 	</style>
+	{#
 	<script async src="https://www.googletagmanager.com/gtag/js?id={{site.analytics}}"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -21,18 +22,22 @@
 		gtag('js', new Date());
 		gtag('config', '{{site.analytics}}');
 	</script>
+	#}
 </head>
 
-<body class="w-100 sans-serif bg-white black-70">
+<body class="w-100 serif bg-white black-70">
 <header class="bb b--black-10 w-100 pa2 ph2 ph4-ns">
 	<div class="db dt-ns mw9 center w-100">
-		<h1 class="db dtc-ns v-mid tl w-50 mt0"><a class="dib f5 f4-ns fw6 mt0 mb1 link black-70" href="/">{{site.name}}</a></h1>
+		<h1 class="db dtc-ns v-mid tl w-50 mt0">
+			<a class="dib f5 f4-ns fw6 mt0 mb1 link black-70" href="/">{% include 'icons/instagram.svg.twig' %} {{site.name}}</a>
+			<a href="/sobre" class="ml2 dib f5 f4-ns fw6 mt0 mb1 link red">{% include 'icons/instagram.svg.twig' %}</a>
+		</h1>
 		<nav class="db dtc-ns v-mid w-100 tl tr-ns mt0">
-			<a title="Sobre a Miaversa" href="/sobre/" class="f6 fw6 hover-light-red link black-70 mr2 mr3-m mr4-l dib">Sobre</a>
-			<a title="Nosso Blog" href="/blog/" class="f6 fw6 hover-light-red link black-70 mr2 mr3-m mr4-l dib">Blog</a>
-			<a title="Tire suas dúvidas na página de perguntas frequentes" href="/perguntas-frequentes/" class="f6 fw6 hover-light-red link black-70 mr2 mr3-m mr4-l dib">FAQ</a>
-			<a title="Entre em Contato" href="/contato/" class="f6 fw6 hover-light-red link black-70 mr2 mr3-m mr4-l dib">Contato</a>
-			<a title="Carrinho de compras" href="{{urls.cartURL()}}" class="f6 fw6 hover-red link light-red mr2 mr3-m mr4-l dib-l">Carrinho</a>
+			<a title="Sobre a Miaversa" href="/sobre/" class="f6 fw6 hover-light-purple link black-70 mr2 mr3-m mr4-l dib">Sobre</a>
+			<a title="Nosso Blog" href="/blog/" class="f6 fw6 hover-light-purple link black-70 mr2 mr3-m mr4-l dib">Blog</a>
+			<a title="Tire suas dúvidas na página de perguntas frequentes" href="/perguntas-frequentes/" class="f6 fw6 hover-light-purple link black-70 mr2 mr3-m mr4-l dib">FAQ</a>
+			<a title="Entre em Contato" href="/contato/" class="f6 fw6 hover-light-purple link black-70 mr2 mr3-m mr4-l dib">Contato</a>
+			<a title="Carrinho de compras" href="{{urls.cartURL()}}" class="f6 fw6 link purple hover-light-purple mr2 mr3-m mr4-l dib-l">Carrinho</a>
 		</nav>
 	</div>
 </header>
