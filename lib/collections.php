@@ -6,8 +6,7 @@ namespace Miaversa;
 use Miaversa\Statico\Collection;
 use Miaversa\Statico\Type;
 
-function collections() : array
-{
+function collections() : array {
 	$collections = [];
 	$file = CONTENT . '/site.json';
 	$colarr = fjson($file);
@@ -18,20 +17,15 @@ function collections() : array
 	return $collections;
 }
 
-function render_collection(\Twig_Environment $template, Collection $collection, array $products, array $types, Type $type = null, array $order = null) : void
-{
+function render_collection(\Twig_Environment $template, Collection $collection, array $products, array $types, Type $type = null, array $order = null) : void {
 	$filename = "/produtos/{$collection->slug}";
-
 	if( ! is_null($type)) {
 		$filename .= "/{$type->slug}";
 	}
-
 	if( ! is_null($order)) {
 		$filename .= "/{$order['slug']}";
 	}
-
 	$filename .= "/index.html";
-
 	$content = $template->render('collection.html.twig', [
 		'collection' => $collection,
 		'products' => $products,
@@ -42,8 +36,7 @@ function render_collection(\Twig_Environment $template, Collection $collection, 
 	put_file($filename, $content);
 }
 
-function render_collections(\Twig_Environment $template)
-{
+function render_collections(\Twig_Environment $template) : void {
 	$orders = [
 		['slug' => 'mais-baratos'],
 		['slug' => 'mais-caros'],
@@ -53,17 +46,14 @@ function render_collections(\Twig_Environment $template)
 	$all_types = types();
 	$collections = collections();
 	$all_products = products();
-
 	foreach($collections as $c) {
 		$products = filter_products_in_collection($c, $all_products);
 		$types = filter_types_in_collection($c, $all_types, $all_products);
-
 		render_collection($template, $c, $products, $types);
 		foreach($orders as $order) {
 			$p = sort_products($products, $order['slug']);
 			render_collection($template, $c, $p, $types, null, $order);
 		}
-		
 		foreach($types as $type) {
 			$pint = filter_products_in_type($products, $type);
 			render_collection($template, $c, $pint, $types, $type, null);

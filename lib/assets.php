@@ -3,8 +3,7 @@ declare(strict_types=1);
 
 namespace Miaversa;
 
-function copy_images()
-{
+function copy_images() {
 	$src = CONTENT . "/images";
 	$dst = OUTPUT . "/images";
 

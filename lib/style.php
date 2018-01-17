@@ -12,15 +12,11 @@ function parse_styles() {
 	];
 
 	$parts = [];
-
-	foreach($files as $file)
-	{
+	foreach($files as $file){
 		$b = basename($file, '.css');
 		$parts[$b] = [];
-
 		$lines = file($file);
-		foreach($lines as $line)
-		{
+		foreach($lines as $line) {
 			$line = trim($line);
 			if (substr($line, 0, 1) != '.') {
 				print "error in {$file}." . PHP_EOL;
@@ -30,35 +26,29 @@ function parse_styles() {
 				print 'err' . PHP_EOL;
 				exit();
 			}
-
 			$pos = strpos($line, '{');
 			$name =  substr($line, 0, $pos);
 			$name = trim($name);
-
 			if(strpos($name, ' ') > 0) {
 				$pos = strpos($line, ' ');
 				$name =  substr($line, 0, $pos);
 				$name = trim($name);
 			}
-
 			if(strpos($name, ':') > 0) {
 				$pos = strpos($line, ':');
 				$name =  substr($line, 0, $pos);
 				$name = trim($name);
 			}
-
 			if( ! isset($parts[$b][$name])) {
 				$parts[$b][$name] = [];
 			}
-
 			$parts[$b][$name][] = $line;
 		}
 	}
 	return $parts;
 }
 
-function build_style_for(array $styles) : string
-{
+function build_style_for(array $styles) : string {
 	$deps = [
 		'tacbase' => ['', ''],
 		'tacmin' => ['@media screen and (min-width: 30em) {', '}'],
@@ -68,11 +58,8 @@ function build_style_for(array $styles) : string
 
 	$css = file_get_contents(CONTENT . '/css/normalize.css') . "\n";
 	$css .= file_get_contents(CONTENT . '/css/pretac.css') . "\n";
-
 	$sts = parse_styles();
-
-	foreach($sts as $section => $s)
-	{
+	foreach($sts as $section => $s) {
 		$css .= "{$deps[$section][0]}\n";
 		foreach($s as $k => $p) {
 			foreach($styles as $xc) {
@@ -85,12 +72,10 @@ function build_style_for(array $styles) : string
 		}
 		$css .= "{$deps[$section][1]}\n";
 	}
-
 	return $css;
 }
 
-function compress_style($content) : string
-{
+function compress_style($content) : string {
 	$command = ROOT . '/node_modules/crass/bin/crass';
 	$tmpfname = tempnam("/tmp", "site");
 	file_put_contents($tmpfname, $content);
@@ -99,8 +84,7 @@ function compress_style($content) : string
 	return $content;
 }
 
-function get_styles(string $content) : array
-{
+function get_styles(string $content) : array {
 	$styles = [];
 	preg_match_all('/class="(.*?)"/', $content, $matches);
 	foreach($matches[1] as $match) {
@@ -116,26 +100,21 @@ function get_styles(string $content) : array
 	return $styles;
 }
 
-function style(string $filename) : void
-{
+function style(string $filename) : void {
 	$content = file_get_contents($filename);
 	$styles = get_styles($content);
 	$css = build_style_for($styles);
-	
 	if(! DEBUG) {
 		$css = compress_style($css);
 	}
-	
 	$content = str_replace('body{color:#333;}', $css, $content);
 	file_put_contents($filename, $content);
 }
 
-function styles($dir = null) : void
-{
+function styles($dir = null) : void {
 	if (is_null($dir)) {
 		$dir = OUTPUT;
 	}
-
 	$files = scandir($dir);
 	foreach($files as $file) {
 		if(in_array($file, ['.', '..'])) {continue;}

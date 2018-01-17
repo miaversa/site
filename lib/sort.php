@@ -19,9 +19,7 @@ function sort_products(array $products, string $order) : array
 			return ($a->date < $b->date) ? -1 : 1;
 		},
 	];
-
 	usort($products, $funcs[$order]);
-
 	return $products;
 }
 
@@ -31,6 +29,5 @@ function sort_posts(array $posts) : array
 		if ($a->dateTime == $b->dateTime) {return 0;}
 		return ($a->dateTime > $b->dateTime) ? -1 : 1;
 	});
-
 	return $posts;
 }

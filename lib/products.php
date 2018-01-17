@@ -5,8 +5,7 @@ namespace Miaversa;
 
 use Miaversa\Statico\Product;
 
-function product(string $file) : Product
-{
+function product(string $file) : Product {
 	$meta = '';
 	$content = '';
 	$contentStep = 0;
@@ -24,7 +23,6 @@ function product(string $file) : Product
 		}
 	}
 	$meta = json_decode($meta, true);
-
 	$product = new Product;
 	$product->sku = $meta['sku'];
 	$product->name = $meta['name'];
@@ -37,33 +35,26 @@ function product(string $file) : Product
 	$product->description = $meta['description'];
 	$product->pop = $meta['pop'];
 	$product->content = $content;
-	
 	return $product;
 }
 
-function products() : array
-{
+function products() : array {
 	$products = [];
-
 	$glog = CONTENT . '/products/*.html';
 	$files = glob($glog);
-
 	foreach($files as $file) {
 		$products[] = product($file);
 	}
-
 	return $products;
 }
 
-function render_product(\Twig_Environment $template, Product $product) : void
-{
+function render_product(\Twig_Environment $template, Product $product) : void {
 	$filename = "/produtos/{$product->collection}/{$product->slug}/index.html";
 	$content = $template->render('product.html.twig', ['product' => $product]);
 	put_file($filename, $content);
 }
 
-function render_products(\Twig_Environment $template) : void
-{
+function render_products(\Twig_Environment $template) : void {
 	$products = products();
 	foreach($products as $product) {
 		render_product($template, $product);
