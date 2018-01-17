@@ -11,24 +11,25 @@
 
 	<main class="fl w-100 w-80-l">
 		<header>
-			<h2 class="purple">{{ post.title }}</h2>
+			<h2 class="{{ styles.title }}">{{ post.title }}</h2>
 		</header>
-
+		<div class="f4 f3-l">
 		{{ post.content|raw }}
+		</div>
 	</main>
 
 	<aside class="fl w-100 w-20-l">
 		<h3>Posts por Data:</h3>
 		<ol class="list nested-list-reset">
-			<li><a class="link light-red hover-red" href="">2019</a>
+			<li><a class="{{ styles.color_link }}" href="">2019</a>
 				<ol>
-					<li><a class="link light-red hover-red" href="">Mar / 2019</a></li>
-					<li><a class="link light-red hover-red" href="">Fev / 2019</a></li>
-					<li><a class="link light-red hover-red" href="">Jan / 2019</a></li>
+					<li><a class="{{ styles.color_link }}" href="">Mar / 2019</a></li>
+					<li><a class="{{ styles.color_link }}" href="">Fev / 2019</a></li>
+					<li><a class="{{ styles.color_link }}" href="">Jan / 2019</a></li>
 				</ol>
 			</li>
-			<li><a class="link light-red hover-red" href="">2019</a></li>
-			<li><a class="link light-red hover-red" href="">2019</a></li>
+			<li><a class="{{ styles.color_link }}" href="">2019</a></li>
+			<li><a class="{{ styles.color_link }}" href="">2019</a></li>
 		</ol>
 	</aside>
 

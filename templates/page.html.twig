@@ -8,9 +8,9 @@
 {% block main %}
 <main class="mw8 center ph2 ph3-ns ph5-l">
 	<header>
-		<h2 class="purple">{{page.name}}</h2>
+		<h2 class="{{ styles.title }}">{{page.name}}</h2>
 	</header>
-	<div class="f3">
+	<div class="f4 f4-l">
 	{{ page.content|raw }}
 	</div>
 </main>

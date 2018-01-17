@@ -122,7 +122,7 @@ function style(string $filename) : void
 	$styles = get_styles($content);
 	$css = build_style_for($styles);
 	
-	if(DEBUG <= 0) {
+	if(! DEBUG) {
 		$css = compress_style($css);
 	}
 	

@@ -13,16 +13,17 @@ if(false === getenv('SALT')) {
 }
 
 $debug = intval(getenv('DEBUG'));
-define('DEBUG', $debug);
+$debugval = $debug > 0;
+define('DEBUG', $debugval);
 
 function main() {
 	$site = Miaversa\get_site('/site.json');
 	$template = Miaversa\get_renderer('/templates');
 	$template->addGlobal('site', $site);
 	$template->addGlobal('urls', new Miaversa\Statico\URL($site));
-
+	$template->addGlobal('styles', new Miaversa\Statico\Styles);
+	$template->addGlobal('DEBUG', DEBUG);
 	Miaversa\validate();
-
 	Miaversa\render_pages($template);
 	Miaversa\render_products($template);
 	Miaversa\render_collections($template);
@@ -31,7 +32,6 @@ function main() {
 	Miaversa\robots($template);
 	Miaversa\sitemap($template);
 	Miaversa\copy_images();
-
 	Miaversa\styles();
 }
 

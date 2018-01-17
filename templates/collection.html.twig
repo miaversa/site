@@ -22,6 +22,7 @@
 {% if order %}
 <p>ordem atual: {{order.slug}}</p>
 {% endif %}
+
 <ul>
 	<li><a href="{{urls.relativeCollectionURL(collection, type, null)}}">Ordenacao padrao</a>
 	<li><a href="{{urls.relativeCollectionURL(collection, type, 'mais-novos')}}">Ordenar por mais novos</a>
@@ -30,10 +31,13 @@
 </ul>
 
 <hr />
+
 {% if type %}
 <p>filtro atual: {{type.name}}</p>
 {% endif %}
+
 <h3>Filtros</h3>
+
 <ul>
 	<li><a href="{{urls.relativeCollectionURL(collection, null, order)}}">Todos</a></li>
 	{% for t in types %}
