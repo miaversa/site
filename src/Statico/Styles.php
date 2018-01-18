@@ -5,13 +5,16 @@ namespace Miaversa\Statico;
 
 final class Styles
 {
+	private $color = 'purple';
+	private $light_color = 'light-purple';
+
 	public function title()
 	{
-		return 'purple roboto-slab f2';
+		return "{$this->color} roboto-slab";
 	}
 
 	public function color_link()
 	{
-		return 'link purple hover-light-purple underline-hover';
+		return "link {$this->color} hover-{$this->light_color} underline-hover";
 	}
 }

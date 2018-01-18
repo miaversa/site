@@ -6,8 +6,8 @@
 
 
 {% block main %}
-<h1>{{ collection.name }}</h1>
 
+<h1>{{ collection.name }}</h1>
 <h3>Ordem</h3>
 
 {#
@@ -37,7 +37,6 @@
 {% endif %}
 
 <h3>Filtros</h3>
-
 <ul>
 	<li><a href="{{urls.relativeCollectionURL(collection, null, order)}}">Todos</a></li>
 	{% for t in types %}
@@ -48,7 +47,6 @@
 <hr />
 
 <h3>Produtos</h3>
-
 <ul>
 {% for p in products %}
 	<li><a href="{{urls.relativeProductURL(p)}}">{{p.name}}</a></li>

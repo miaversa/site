@@ -3,15 +3,13 @@
 {% set page_metadescription = page.description %}
 {% set ogtype='page' %}
 
-
-
 {% block main %}
-<main class="mw8 center ph2 ph3-ns ph5-l">
-	<header>
-		<h2 class="{{ styles.title }}">{{page.name}}</h2>
-	</header>
-	<div class="f4 f4-l">
-	{{ page.content|raw }}
-	</div>
-</main>
+	<main class="mw7 center ph3">
+		<header>
+			<h2 class="purple f2">{{page.name}}</h2>
+		</header>
+		<div class="f4">
+		{{ page.content|raw }}
+		</div>
+	</main>
 {% endblock %}

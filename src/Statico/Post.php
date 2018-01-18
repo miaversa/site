@@ -26,4 +26,9 @@ final class Post
 	{
 		throw new \Exception("propertie {$name} does not exists.");
 	}
+
+	public function formatedDate()
+	{
+		return strftime('%A, %e de %B de %G', $this->dateTime->getTimestamp());
+	}
 }

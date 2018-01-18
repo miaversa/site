@@ -1,38 +1,43 @@
 {% extends "base.html.twig" %}
-
 {% set page_metatitle = "Blog da #{site.name}" %}
 {% set page_metadescription = 'saiba o que estamos fazendo no dia a dia aqui no blog' %}
 
 {% set ogtype='blogindex' %}
 
 {% block main %}
-<div class="mw8 center ph2 ph3-ns ph5-l">
+<div class="mw8 center ph3">
 <div class="cf">
 
 	<main class="fl w-100 w-80-l">
 	{% for p in posts %}
-		<h2 class="{{ styles.title }}"><a class="{{ styles.color_link }}" href="{{urls.relativePostURL(p)}}" title="{{p.description}}">{{ p.title }}</a></h2>
-		
-		<div class="f4 f3-l">
-		{{ p.summary|raw }}
-		</div>
-		
-		<p><a class="{{ styles.color_link }}" href="{{urls.relativePostURL(p)}}" title="{{p.description}}">continue lendo este post...</a></p>
+		<article>
+			<header>
+				<h2 class="purple f2 pb0 mb0"><a class="link purple hover-light-purple underline-hover" href="{{urls.relativePostURL(p)}}" title="{{p.description}}">{{ p.title }}</a></h2>
+				<div><time datetime="{{p.dateTime.format('Y-m-d')}}">{{p.formatedDate}}</time></div>
+			</header>
+
+			<div class="f4 f3-l">
+			{{ p.summary|raw }}
+			</div>
+			
+			<p><a class="link purple hover-light-purple underline-hover" href="{{urls.relativePostURL(p)}}" title="{{p.description}}">continue lendo este post...</a></p>
+		</article>
 	{% endfor %}
 	</main>
 
 	<aside class="fl w-100 w-20-l">
 		<h3>Posts por Data:</h3>
+		
 		<ol class="list nested-list-reset">
-			<li><a class="{{ styles.color_link }}" href="">2019</a>
+			<li><a class="link purple hover-light-purple underline-hover" href="">2019</a>
 				<ol class="mb4">
-					<li class="pl3 lh-copy"><a class="{{ styles.color_link }}" href="">Mar / 2019</a></li>
-					<li class="pl3 lh-copy"><a class="{{ styles.color_link }}" href="">Fev / 2019</a></li>
-					<li class="pl3 lh-copy"><a class="{{ styles.color_link }}" href="">Jan / 2019</a></li>
+					<li class="pl3 lh-copy"><a class="link purple hover-light-purple underline-hover" href="">Mar / 2019</a></li>
+					<li class="pl3 lh-copy"><a class="link purple hover-light-purple underline-hover" href="">Fev / 2019</a></li>
+					<li class="pl3 lh-copy"><a class="link purple hover-light-purple underline-hover" href="">Jan / 2019</a></li>
 				</ol>
 			</li>
-			<li><a class="{{ styles.color_link }}" href="">2019</a></li>
-			<li><a class="{{ styles.color_link }}" href="">2019</a></li>
+			<li><a class="link purple hover-light-purple underline-hover" href="">2019</a></li>
+			<li><a class="link purple hover-light-purple underline-hover" href="">2019</a></li>
 		</ol>
 	</aside>
 

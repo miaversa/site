@@ -1,5 +1,4 @@
 {% extends "base.html.twig" %}
-
 {% set page_metatitle = "Blog | #{post.title}" %}
 {% set page_metadescription = post.description %}
 
@@ -10,26 +9,29 @@
 <div class="cf">
 
 	<main class="fl w-100 w-80-l">
-		<header>
-			<h2 class="{{ styles.title }}">{{ post.title }}</h2>
-		</header>
-		<div class="f4 f3-l">
-		{{ post.content|raw }}
-		</div>
+		<article>
+			<header>
+				<h2 class="purple">{{ post.title }}</h2>
+				<div><time datetime="{{post.dateTime.format('Y-m-d')}}">{{post.formatedDate}}</time></div>
+			</header>
+			<div class="f4">
+			{{ post.content|raw }}
+			</div>
+		</article>
 	</main>
 
 	<aside class="fl w-100 w-20-l">
 		<h3>Posts por Data:</h3>
 		<ol class="list nested-list-reset">
-			<li><a class="{{ styles.color_link }}" href="">2019</a>
+			<li><a class="link purple hover-light-purple underline-hover" href="">2019</a>
 				<ol>
-					<li><a class="{{ styles.color_link }}" href="">Mar / 2019</a></li>
-					<li><a class="{{ styles.color_link }}" href="">Fev / 2019</a></li>
-					<li><a class="{{ styles.color_link }}" href="">Jan / 2019</a></li>
+					<li><a class="link purple hover-light-purple underline-hover" href="">Mar / 2019</a></li>
+					<li><a class="link purple hover-light-purple underline-hover" href="">Fev / 2019</a></li>
+					<li><a class="link purple hover-light-purple underline-hover" href="">Jan / 2019</a></li>
 				</ol>
 			</li>
-			<li><a class="{{ styles.color_link }}" href="">2019</a></li>
-			<li><a class="{{ styles.color_link }}" href="">2019</a></li>
+			<li><a class="link purple hover-light-purple underline-hover" href="">2019</a></li>
+			<li><a class="link purple hover-light-purple underline-hover" href="">2019</a></li>
 		</ol>
 	</aside>
 

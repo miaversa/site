@@ -16,12 +16,13 @@ $debug = intval(getenv('DEBUG'));
 $debugval = $debug > 0;
 define('DEBUG', $debugval);
 
+setlocale (LC_TIME, 'pt_BR.utf8');
+
 function main() {
 	$site = Miaversa\get_site('/site.json');
 	$template = Miaversa\get_renderer('/templates');
 	$template->addGlobal('site', $site);
 	$template->addGlobal('urls', new Miaversa\Statico\URL($site));
-	$template->addGlobal('styles', new Miaversa\Statico\Styles);
 	$template->addGlobal('DEBUG', DEBUG);
 	Miaversa\validate();
 	Miaversa\render_pages($template);

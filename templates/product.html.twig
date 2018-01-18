@@ -23,19 +23,16 @@
 </header>
 
 <div class="ph3 ph5-ns">
-<p>Valor: R$ {{product.price|number_format(2, ',', '.')}}</p>
-
-<form method="post" action="{{urls.cartURL()}}">
-	<input type="hidden" name="action" value="add">
-	<input type="hidden" name="product[sku]" value="{{product.sku}}" />
-	<input type="hidden" name="product[name]" value="{{product.name}}" />
-	<input type="hidden" name="product[price]" value="{{product.price}}" />
-	<input type="hidden" name="product[sign]" value="{{product.sign}}" />
-	<input type="submit" value="Comprar" />
-</form>
-
-{{product.content|raw}}
-
+	<p>Valor: R$ {{product.price|number_format(2, ',', '.')}}</p>
+	<form method="post" action="{{urls.cartURL()}}">
+		<input type="hidden" name="action" value="add">
+		<input type="hidden" name="product[sku]" value="{{product.sku}}" />
+		<input type="hidden" name="product[name]" value="{{product.name}}" />
+		<input type="hidden" name="product[price]" value="{{product.price}}" />
+		<input type="hidden" name="product[sign]" value="{{product.sign}}" />
+		<input type="submit" value="Comprar" />
+	</form>
+	{{product.content|raw}}
 </div>
 
 {% endblock %}

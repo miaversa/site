@@ -37,5 +37,4 @@ function get_site() : Site {
 	return new Site($a['name'], $a['baseURL'], $a['cartURL'], $a['description'], $a['twitter'], $a['analytics']);
 }
 
-// TODO: remover
 require __DIR__ . '/style.php';
