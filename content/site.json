@@ -1,7 +1,8 @@
 {
 	"name"            : "Miaversa",
 	"baseURL"         : "https://miaversa.com.br",
-	"cartURL"         : "https://carrinho.miaversa.com.br",
+	"cartURL"         : "https://carrinho.miaversa.com.br/",
+	"contactURL"      : "https://carrinho.miaversa.com.br/contato/",
 	"description"     : "A Miaversa eh uma loja especializada",
 	"twitter"         : "miaversa",
 	"analytics"       : "UA-112427178-1",

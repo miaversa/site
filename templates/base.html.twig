@@ -24,32 +24,33 @@
 		gtag('js', new Date());
 		gtag('config', '{{site.analytics}}');
 	</script>
+{% endif %}
+	{#
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab');
 		.roboto {font-family: 'Open Sans', sans-serif;}
 		.roboto-slab {font-family: 'Roboto Slab', serif;}
 	</style>
-{% endif %}
-
+	#}
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Quicksand|Trochut');
+		.roboto {font-family: 'Quicksand', sans-serif;}
+		.roboto-slab {font-family: 'Trochut', cursive;}
+	</style>
 </head>
 
-<body class="bg-white black-70 sans-serif">
-	<header class="bb b--black-10 pa2">
-		<h1 class="tc f3">
-			<a class="db" href="/" title="Miaversa {{site.description}}">
-				<img class="h3" src="/images/logo.svg" alt="logo miaversa" />
-			</a>
-			<a class="db link black-70" href="/">
-				Miaversa
-			</a>
+<body class="bg-white black-70 roboto">
+	<header class="bb b--black-10">
+		<h1 class="tc f3 ma0 pt2">
+			<a class="db ma0" href="/" title="Miaversa {{site.description}}"><img class="h4" src="/images/logo.svg" alt="logo miaversa" /></a>
+			<a class="db link black-70 roboto-slab f2 ma0 mb3" href="/" title="Miaversa {{site.description}}">Miaversa</a>
 		</h1>
 
 		<nav class="db tc">
-				<a title="Sobre a Miaversa" href="/sobre/" class="f6 fw6 hover-light-purple link black-70 ma2">Sobre</a>
-				<a title="Nosso Blog" href="/blog/" class="f6 fw6 hover-light-purple link black-70 ma2">Blog</a>
-				<a title="Tire suas dúvidas na página de perguntas frequentes" href="/perguntas-frequentes/" class="f6 fw6 hover-light-purple link black-70 ma2">FAQ</a>
-				<a title="Entre em Contato" href="/contato/" class="f6 fw6 hover-light-purple link black-70 ma2">Contato</a>
-				<a title="Carrinho de compras" href="{{urls.cartURL()}}" class="f6 fw6 link purple hover-light-purple ma2">Carrinho</a>
+				<a title="Sobre a Miaversa" href="/sobre/" class="f5 fw6 hover-light-purple link black-70 ma2">Sobre</a>
+				<a title="Nosso Blog" href="/blog/" class="f5 fw6 hover-light-purple link black-70 ma2">Blog</a>
+				<a title="Tire suas dúvidas na página de perguntas frequentes" href="/perguntas-frequentes/" class="f5 fw6 hover-light-purple link black-70 ma2">FAQ</a>
+				<a title="Entre em Contato" href="/contato/" class="f5 fw6 hover-light-purple link black-70 ma2">Contato</a>
 			</nav>
 	</header>
 {#
@@ -87,7 +88,7 @@
 			<a href="/privacidade/" title="Termos de Privacidade" class="f6 dib ph2 link mid-gray dim">Termos de Privacidade</a>
 		</div>
 
-		<small class="f6 db tc">© 2018 <b class="ttu">MIAVERSA</b>. Todos os direitos reservados</small>
+		<small class="f6 db tc">© 2018 <strong class="ttu">MIAVERSA</strong>. Todos os direitos reservados</small>
 	</footer>
 </body>
 </html>
