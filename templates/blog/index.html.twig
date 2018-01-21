@@ -12,7 +12,7 @@
 	{% for p in posts %}
 		<article>
 			<header>
-				<h2 class="purple f2 pb0 mb0 roboto-slab"><a class="link purple hover-light-purple underline-hover" href="{{urls.relativePostURL(p)}}" title="{{p.description}}">{{ p.title }}</a></h2>
+				<h2 class="purple f2 pb0 mb0"><a class="link purple hover-light-purple underline-hover" href="{{urls.relativePostURL(p)}}" title="{{p.description}}">{{ p.title }}</a></h2>
 				<div><time datetime="{{p.dateTime.format('Y-m-d')}}">{{p.formatedDate}}</time></div>
 			</header>
 

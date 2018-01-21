@@ -15,35 +15,24 @@
 	<style>
 	body{color:#333;}
 	</style>
-
 {% if not DEBUG %}
-	<script async src="https://www.googletagmanager.com/gtag/js?id={{site.analytics}}"></script>
 	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', '{{site.analytics}}');
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', '{{site.analytics}}', 'auto');
+	ga('send', 'pageview');
 	</script>
+	<script async src='https://www.google-analytics.com/analytics.js'></script>
 {% endif %}
-	{#
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab');
-		.roboto {font-family: 'Open Sans', sans-serif;}
-		.roboto-slab {font-family: 'Roboto Slab', serif;}
-	</style>
-	#}
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Quicksand|Trochut');
-		.roboto {font-family: 'Quicksand', sans-serif;}
-		.roboto-slab {font-family: 'Trochut', cursive;}
-	</style>
+
+	<script async defer src="//assets.pinterest.com/js/pinit.js" type="text/javascript"></script>
 </head>
 
-<body class="bg-white black-70 roboto">
-	<header class="bb b--black-10">
-		<h1 class="tc f3 ma0 pt2">
-			<a class="db ma0" href="/" title="Miaversa {{site.description}}"><img class="h4" src="/images/logo.svg" alt="logo miaversa" /></a>
-			<a class="db link black-70 roboto-slab f2 ma0 mb3" href="/" title="Miaversa {{site.description}}">Miaversa</a>
+<body class="bg-white black-70 sans-serif">
+	<header>
+		<h1 class="tc">
+			<a id="logo" class="db" href="/" title="Miaversa - Joias personalizadas">
+				<img class="mw5" src="/images/logo.png" alt="Logo miaversa" />
+			</a>
 		</h1>
 
 		<nav class="db tc">

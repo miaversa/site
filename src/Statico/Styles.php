@@ -10,7 +10,7 @@ final class Styles
 
 	public function title()
 	{
-		return "{$this->color} roboto-slab";
+		return "{$this->color}";
 	}
 
 	public function color_link()
