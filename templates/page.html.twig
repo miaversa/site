@@ -4,12 +4,12 @@
 {% set ogtype='page' %}
 
 {% block main %}
-	<main class="mw7 center pa3">
+	<section class="center pa3 cf">
 		<header>
 			<h2 class="purple f3">{{page.name}}</h2>
 		</header>
-		<div class="f5">
+		<main class="f5">
 		{{ page.content|raw }}
-		</div>
-	</main>
+		</main>
+	</section>
 {% endblock %}

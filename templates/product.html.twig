@@ -3,36 +3,55 @@
 {% set page_metadescription = product.description %}
 {% set ogtype='product' %}
 
-
-
 {% block main %}
 
-<nav aria-label="breadcrumb">
-	<ol class="db">
-		<li class="list di"><a href="/" title="Página inicial Miaversa">Miaversa</a></li>
-		<li class="list di bc"><a href="{{urls.simpleCollectionURL(product)}}" title="Coleção x">colecao aqui</a></li>
-		<li class="list di bc"><a href="{{urls.simpleCollectionURL(product)}}" title="Coleção x">tipo aqui</a></li>
-		<li class="list di bc" aria-current="page">{{ product.name }}</li>
-	</ol>
-</nav>
+	<section class="center pa3 cf">
+		<nav aria-label="breadcrumb">
+			<ol class="db ma0 pa0">
+				<li class="list di f7"><a class="black-70" href="/" title="Página inicial Miaversa">Miaversa</a></li>
+				<li class="list di bc f7"><a class="black-70" href="{{urls.simpleCollectionURL(product)}}" title="Coleção x">colecao aqui</a></li>
+				<li class="list di bc f7"><a class="black-70" href="{{urls.simpleCollectionURL(product)}}" title="Coleção x">tipo aqui</a></li>
+				<li class="list di bc f7" aria-current="page">{{ product.name }}</li>
+			</ol>
+		</nav>
 
-<header class="pb3 mb3">
-	<div class="ph3 ph5-ns">
-		<h2 class="ttu tracked f4">{{ product.name }}</h2>
-	</div>
-</header>
+		<article>
+			<header>
+				<h2>{{ product.name }}</h2>
+			</header>
+			<div>
+				<main>
+					
+					<div class="ba br1 pa2 b--black-10">
+						<a href="">
+							<img class="w-100 br1 ma0 pa0" src="/images/media/recozendo.jpg"
+							srcset="
+							/images/media/recozendo-100.jpg 100w,
+							/images/media/recozendo-200.jpg 200w,
+							/images/media/recozendo-300.jpg 300w,
+							/images/media/recozendo-400.jpg 400w"
+							alt="recozendo um fio de prata" />
+						</a>
+					</div>
 
-<div class="ph3 ph5-ns">
-	<p>Valor: R$ {{product.price|number_format(2, ',', '.')}}</p>
-	<form method="post" action="{{urls.cartURL()}}">
-		<input type="hidden" name="action" value="add">
-		<input type="hidden" name="product[sku]" value="{{product.sku}}" />
-		<input type="hidden" name="product[name]" value="{{product.name}}" />
-		<input type="hidden" name="product[price]" value="{{product.price}}" />
-		<input type="hidden" name="product[sign]" value="{{product.sign}}" />
-		<input type="submit" value="Comprar" />
-	</form>
-	{{product.content|raw}}
-</div>
+					<div>
+						{{product.content|raw}}
+					</div>
+					
+				</main>
+				<aside>
+					<p>Valor: R$ {{product.price|number_format(2, ',', '.')}}</p>
+					<form method="post" action="{{urls.cartURL()}}">
+						<input type="hidden" name="action" value="add">
+						<input type="hidden" name="product[sku]" value="{{product.sku}}" />
+						<input type="hidden" name="product[name]" value="{{product.name}}" />
+						<input type="hidden" name="product[price]" value="{{product.price}}" />
+						<input type="hidden" name="product[sign]" value="{{product.sign}}" />
+						<input type="submit" value="Comprar" />
+					</form>
+				</aside>
+			</div>
+		</article>
+	</section>
 
 {% endblock %}
