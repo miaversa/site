@@ -1,1 +1,2 @@
+#!/bin/bash
 java -jar vendor/vnu.jar --no-langdetect --skip-non-html output/
