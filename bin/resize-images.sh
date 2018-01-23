@@ -34,5 +34,5 @@ function resize_media_forty_three {
 	rm -rf $interdir
 }
 
-resize_media_forty_three "content/images/media/serrando-original.jpg" 9 400
+resize_media_forty_three "content/images/media/serrando-original.jpg" 4 400
 resize_media_forty_three "content/images/media/recozendo-original.jpg" 9 400

@@ -1,4 +1,5 @@
 #!/bin/bash
+bin/resize-images.sh
 rm -rf output/*
 bin/smake
 aws s3 sync output/ s3://miaversa/
