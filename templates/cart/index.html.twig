@@ -1,0 +1,53 @@
+{% extends "cart/base.html.twig" %}
+{% set page_metatitle = "#{site.name} | Carrinho" %}
+{% set page_metadescription = "carrinho" %}
+{% set ogtype='page' %}
+
+{% block main %}
+	<section class="center pa3 cf">
+		<table class="w-100 collapse ba br2 b--black-10 pv2 ph3">
+			<tr class="striped--light-gray ">
+				<th class="pa3"></th>
+				<th class="pa3">Produto</th>
+				<th class="pa3">Quantidade</th>
+				<th class="pa3">Preço</th>
+				<th class="pa3">Total</th>
+			</tr>
+
+			{% for p in session.cart.items %}
+			<tr class="striped--near-white ">
+				<td class="tc pa2">
+					<form class="di" method="post" action="/delete.php">
+						<input type="hidden" name="sku" value="{{p.product.sku}}" />
+						<input type="submit" value="x" />
+					</form>
+				</td>
+				<td class="tc pa2">{{p.product.name}}</td>
+				<td class="tc pa2">
+					<form class="di" method="post" action="/decrease.php">
+						<input type="hidden" name="sku" value="{{p.product.sku}}" />
+						<button>-</button>
+					</form>
+					{{p.qty}}
+					<form class="di" method="post" action="/increase.php">
+						<input type="hidden" name="sku" value="{{p.product.sku}}" />
+						<button>+</button>
+					</form>
+				</td>
+				<td class="tc pa2">R$ {{p.product.price}}</td>
+				<td class="tc pa2">R$ {{p.qty * p.product.price}}</td>
+			</tr>
+			{% endfor %}
+
+			<tr>
+				<td colspan="4">frete</td>
+				<td>R$ 100,00</td>
+			</tr>
+
+			<tr>
+				<td colspan="4">total</td>
+				<td>R$ {{ session.cart.total }}</td>
+			</tr>
+		</table>
+	</section>
+{% endblock %}
