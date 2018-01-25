@@ -79,7 +79,7 @@ function compress_style($content) : string {
 	$command = ROOT . '/node_modules/crass/bin/crass';
 	$tmpfname = tempnam("/tmp", "site");
 	file_put_contents($tmpfname, $content);
-	$content = exec("{$command} {$tmpfname} --optimize");
+	$content = exec("{$command} {$tmpfname} --optimize --saveie");
 	unlink($tmpfname);
 	return $content;
 }

@@ -15,41 +15,58 @@
 			</ol>
 		</nav>
 
-		<article>
-			<header>
-				<h2>{{ product.name }}</h2>
-			</header>
+		<article class="mv3">
 			<div>
 				<main>
-					
 					<div class="ba br1 pa2 b--black-10">
-						<a href="">
-							<img class="w-100 br1 ma0 pa0" src="/images/media/recozendo.jpg"
-							srcset="
-							/images/media/recozendo-100.jpg 100w,
-							/images/media/recozendo-200.jpg 200w,
-							/images/media/recozendo-300.jpg 300w,
-							/images/media/recozendo-400.jpg 400w"
-							alt="recozendo um fio de prata" />
+						<a href="/images/produtos/anel-b/anel-b-1.jpg">
+							<img class="w-100 br1 ma0 pa0" src="/images/produtos/anel-b/anel-b-1-original.jpg" />
 						</a>
+					</div>
+
+					<div class="cf mt2">
+						<div class="fl w-third pa1">
+							<div class="ba br1 pa1 b--black-10">
+								<a href="/images/produtos/anel-b/anel-b-1.jpg">
+								<img class="w-100 br1 ma0 pa0" src="/images/produtos/anel-b/anel-b-1.jpg" />
+								</a>
+							</div>
+						</div>
+						<div class="fl w-third pa1">
+							<div class="ba br1 pa1 b--black-10">
+								<a href="/images/produtos/anel-b/anel-b-1.jpg">
+								<img class="w-100 br1 ma0 pa0" src="/images/produtos/anel-b/anel-b-1.jpg" />
+								</a>
+							</div>
+						</div>
+						<div class="fl w-third pa1">
+							<div class="ba br1 pa1 b--black-10">
+								<a href="/images/produtos/anel-b/anel-b-1.jpg">
+								<img class="w-100 br1 ma0 pa0" src="/images/produtos/anel-b/anel-b-1.jpg" />
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<h2>{{ product.name }}</h2>
+
+					<div>
+						<form method="post" action="{{urls.cartURL()}}">
+							<input type="hidden" name="action" value="add">
+							<input type="hidden" name="product[sku]" value="{{product.sku}}" />
+							<input type="hidden" name="product[name]" value="{{product.name}}" />
+							<input type="hidden" name="product[price]" value="{{product.price}}" />
+							<input type="hidden" name="product[sign]" value="{{product.sign}}" />
+							<p class="fw9 purple tr">R$ {{product.price|number_format(2, ',', '.')}}
+							<button class="purple b ph3 pv2 input-reset ba b--purple bg-transparent grow pointer f6 dib" type="submit">Comprar</button></p>
+						</form>
 					</div>
 
 					<div>
 						{{product.content|raw}}
 					</div>
-					
+
 				</main>
-				<aside>
-					<p>Valor: R$ {{product.price|number_format(2, ',', '.')}}</p>
-					<form method="post" action="{{urls.cartURL()}}">
-						<input type="hidden" name="action" value="add">
-						<input type="hidden" name="product[sku]" value="{{product.sku}}" />
-						<input type="hidden" name="product[name]" value="{{product.name}}" />
-						<input type="hidden" name="product[price]" value="{{product.price}}" />
-						<input type="hidden" name="product[sign]" value="{{product.sign}}" />
-						<input type="submit" value="Comprar" />
-					</form>
-				</aside>
 			</div>
 		</article>
 	</section>

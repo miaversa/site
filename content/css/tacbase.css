@@ -301,7 +301,7 @@
 .w-80 { width: 80%; }
 .w-90 { width: 90%; }
 .w-100 { width: 100%; }
-.w-third { width: calc( 100% / 3 ); }
+.w-third { width: 33.33%; }
 .w-two-thirds { width: calc( 100% / 1.5 ); }
 .w-auto { width: auto; }
 .overflow-visible { overflow: visible; }

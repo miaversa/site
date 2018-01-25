@@ -209,7 +209,7 @@
 .w-80-ns { width: 80%; }
 .w-90-ns { width: 90%; }
 .w-100-ns { width: 100%; }
-.w-third-ns { width: calc( 100% / 3 ); }
+.w-third-ns { width: 33.33%; }
 .w-two-thirds-ns { width: calc( 100% / 1.5 ); }
 .w-auto-ns { width: auto; }
 .overflow-visible-ns { overflow: visible; }

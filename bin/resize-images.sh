@@ -36,3 +36,18 @@ function resize_media_forty_three {
 
 resize_media_forty_three "content/images/media/serrando-original.jpg" 4 400
 resize_media_forty_three "content/images/media/recozendo-original.jpg" 9 400
+
+############################################################################
+
+
+composite -gravity center "content/images/magico4.png" \
+"content/images/produtos/anel-b/anel-b-1-original.jpg" \
+"content/images/produtos/anel-b/anel-b-1.jpg"
+
+composite -gravity center "content/images/magico4.png" \
+"content/images/produtos/anel-b/anel-b-2-original.jpg" \
+"content/images/produtos/anel-b/anel-b-2.jpg"
+
+composite -gravity center "content/images/magico4.png" \
+"content/images/produtos/anel-b/anel-b-3-original.jpg" \
+"content/images/produtos/anel-b/anel-b-3.jpg"
