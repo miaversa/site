@@ -19,7 +19,7 @@ final class URL
 
 	public function cartURL() : string
 	{
-		return "{$this->site->cartURL}/";
+		return "{$this->site->cartURL}";
 	}
 
 	public function relativePageURL(Page $page) : string

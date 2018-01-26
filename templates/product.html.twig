@@ -51,8 +51,7 @@
 					<h2>{{ product.name }}</h2>
 
 					<div>
-						<form method="post" action="{{urls.cartURL()}}">
-							<input type="hidden" name="action" value="add">
+						<form method="post" action="{{urls.cartURL()}}/add.php">
 							<input type="hidden" name="product[sku]" value="{{product.sku}}" />
 							<input type="hidden" name="product[name]" value="{{product.name}}" />
 							<input type="hidden" name="product[price]" value="{{product.price}}" />
