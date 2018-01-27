@@ -189,13 +189,14 @@ function updateShippingData($email, $shipping)
 		'M' => [
 			'address' => [
 				'M' => [
-					'number' => ['S' => $shipping['address']['number']],
-					'country' => ['S' => $shipping['address']['country']],
-					'city' => ['S' => $shipping['address']['city']],
 					'street' => ['S' => $shipping['address']['street']],
-					'district' => ['S' => $shipping['address']['district']],
-					'postalCode' => ['S' => $shipping['address']['postalCode']],
+					'number' => ['S' => $shipping['address']['number']],
 					'complement' => ['S' => $shipping['address']['complement']],
+					'district' => ['S' => $shipping['address']['district']],
+					'city' => ['S' => $shipping['address']['city']],
+					'state' => ['S' => $shipping['address']['state']],
+					'country' => ['S' => $shipping['address']['country']],
+					'postalCode' => ['S' => $shipping['address']['postalCode']],
 				]
 			]
 		]
