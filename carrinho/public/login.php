@@ -25,7 +25,12 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 	}
 
 	$hash = sha1($password);
-	auth($email, $hash);
+
+	if (auth($email, $hash)) {
+		print 'auth ok';
+	} else {
+		print 'autho not';
+	}
 }
 
 $params = [
