@@ -1,13 +1,170 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/functions.php';
-require __DIR__ . '/cart.php';
-require __DIR__ . '/db.php';
-require __DIR__ . '/login.php';
 
 if (file_exists(__DIR__ . '/env.pro.php')) {
 	require __DIR__ . '/env.pro.php';
 } else {
 	require __DIR__ . '/env.dev.php';
 }
+
+// ##############################################################
+// FUNCTIONS
+// ##############################################################
+
+function getTemplates()
+{
+	$loader = new \Twig_Loader_Filesystem(dirname(__DIR__) . '/templates');
+	$twig = new \Twig_Environment($loader, ['debug' => true, 'strict_variables' => true]);
+	$twig->addGlobal('DEBUG', DEBUG);
+	return $twig;
+}
+
+function redirect($location)
+{
+	header("Location: {$location}");
+	exit();
+}
+
+function csrf_validation($token)
+{
+	$expected = sha1(date('H'));
+	return $token == $expected;
+}
+
+// ##############################################################
+// CART
+// ##############################################################
+
+define('COOKIE_NAME', 'mcart');
+
+function c_get()
+{
+	$cart = [];
+	if (isset($_COOKIE[COOKIE_NAME])) {
+		$cart = $_COOKIE[COOKIE_NAME];
+		$cart = base64_decode($cart);
+		$cart = json_decode($cart, true);
+	}
+	if (! isset($cart['items'])) {
+		$cart['items'] = [];
+	}
+	return $cart;
+}
+
+function c_add($cart, $product)
+{
+	$cart['items'][] = [
+		'product' => [
+			'sku'   => $product['sku'],
+			'name'  => $product['name'],
+			'price' => $product['price'],
+			'sign'  => $product['sign']
+		]
+	];
+	return $cart;
+}
+
+function c_delete($cart, $idx)
+{
+	if(isset($cart['items'][$idx])) {
+		unset($cart['items'][$idx]);
+	}
+	return $cart;
+}
+
+function c_update($cart)
+{
+	$content = json_encode($cart);
+	$content = base64_encode($content);
+	
+	$secure = false;
+	if (! DEBUG) {
+		$secure = true;
+	}
+	
+	setcookie(COOKIE_NAME, $content, time()+60*60*24*30, '/', 'carrinho.miaversa.com.br', $secure, true);
+}
+
+function c_validate($product)
+{
+	if (! isset($product['sku'])) {
+		return false;
+	}
+
+	if (! isset($product['name'])) {
+		return false;
+	}
+
+	if (! isset($product['price'])) {
+		return false;
+	}
+
+	$price = number_format($product['price'], 2, ',', '.');
+	$sign = '#' . SALT . "#{$product['sku']}#{$product['name']}#{$price}#";
+	$sign = sha1($sign);
+	return $product['sign'] == $sign;
+}
+
+// ##############################################################
+// DB
+// ##############################################################
+
+function auth($email, $hash)
+{
+	$dynamo = new \Aws\DynamoDb\DynamoDbClient([
+		'region' => 'sa-east-1',
+		'version' => 'latest',
+		'credentials' => [
+			'key'    => AWS_KEY,
+			'secret' => AWS_SECRET,
+		],
+	]);
+	
+	$u = $dynamo->getItem([
+		'Key' => [
+			'email' => [
+			'S' => $email,
+			]
+		],
+		'TableName' => 'users',
+	]);
+
+	if(is_null($u['Item'])) {
+		return false;
+	}
+
+	if ($hash == $u['Item']['password']['S']) {
+		return true;
+	}
+
+	return false;
+}
+
+// ##############################################################
+// LOGIN
+// ##############################################################
+
+
+define('SESSION_COOKIE_NAME', 'msession');
+
+function s_get()
+{
+	$email = null;
+	if (isset($_COOKIE[SESSION_COOKIE_NAME])) {
+		$email = $_COOKIE[SESSION_COOKIE_NAME];
+		$email = base64_decode($email);
+	}
+	return $email;
+}
+
+function s_set($email)
+{
+	$content = base64_encode($email);
+	$secure = false;
+	if (! DEBUG) {
+		$secure = true;
+	}
+	setcookie(SESSION_COOKIE_NAME, $content, time()+60*60*24*30, '/', 'carrinho.miaversa.com.br', $secure, true);
+}
+
