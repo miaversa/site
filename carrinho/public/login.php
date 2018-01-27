@@ -24,7 +24,8 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 		exit();
 	}
 
-	auth($email, $password);
+	$hash = sha1($password);
+	auth($email, $hash);
 }
 
 $params = [

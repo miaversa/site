@@ -1,6 +1,6 @@
 <?php
 
-function auth($email, $password)
+function auth($email, $hash)
 {
 	$dynamo = new \Aws\DynamoDb\DynamoDbClient([
 		'region' => 'sa-east-1',
@@ -24,7 +24,7 @@ function auth($email, $password)
 		return false;
 	}
 
-	if ($password == $u['Item']['password']['S']) {
+	if ($hash == $u['Item']['password']['S']) {
 		return true;
 	}
 
