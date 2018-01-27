@@ -200,6 +200,14 @@ function s_set($email)
 // ##############################################################
 function getShippingData()
 {
+	if('POST' == $_SERVER['REQUEST_METHOD']) {
+		return getShippingDataFromRequest();
+	}
+	return getShippingDataFromDB();
+}
+
+function getShippingDataFromDB()
+{
 	$data = ['address' => [
 		'street' => '',
 		'number' => '',
@@ -229,7 +237,6 @@ function getShippingData()
 		'postalCode' => $userData['shipping']['M']['address']['M']['postalCode']['S'],
 	]];
 
-	//$data = getShippingDataFromRequest();
 	return $data;
 }
 

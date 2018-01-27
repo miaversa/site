@@ -10,8 +10,7 @@ if (is_null($session)) {
 $data = getShippingData();
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-	//$data = getShippingData();
-	print_r($_POST);
+	print_r($data);
 	exit();
 }
 
