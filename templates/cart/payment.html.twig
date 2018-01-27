@@ -1,1 +1,60 @@
-payment
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<payment>
+	<mode>default</mode>
+	<currency>BRL</currency>
+	<receiverEmail>daniela@miaversa.com.br</receiverEmail>
+	<method>boleto</method>
+	
+	<sender>
+		<hash>{{sender.hash}}</hash>
+		<ip>{{sender.ip}}</ip>
+		
+		<name>{{sender.name}}</name>
+		<email>{{sender.email}}</email>
+		<phone>
+			<areaCode>{{sender.phone.area_code}}</areaCode>
+			<number>{{sender.phone.number}}</number>
+		</phone>
+		<documents>
+			<document>
+				<type>CPF</type>
+				<value>{{sender.cpf}}</value>
+			</document>
+		</documents>
+		<bornDate>01/01/1986</bornDate>
+	</sender>
+	
+	{{% for item in items %}}
+	<items>
+		<item>
+			<id>{{item.sku}}</id>
+			<description>{{item.description}}</description>
+			<amount>{{item.amount}}</amount>
+			<quantity>1</quantity>
+		</item>
+	</items>
+	{{% endfor %}}
+	
+	<reference>REF1</reference>
+	
+	<shipping>
+		<address>
+			<street>SCRN 716</street>
+			<number>50</number>
+			<complement>apto 201</complement>
+			<district>Asa Norte</district>
+			<city>Brasilia</city>
+			<state>DF</state>
+			<country>BRA</country>
+			<postalCode>70770660</postalCode>
+		</address>
+		<type>1</type>
+		<cost>1.00</cost>
+		<addressRequired>true</addressRequired>
+	</shipping>
+		
+	<dynamicPaymentMethodMessage>
+		<creditCard>Miaversa</creditCard>
+		<boleto>Miaversa</boleto>
+	</dynamicPaymentMethodMessage>
+</payment>
