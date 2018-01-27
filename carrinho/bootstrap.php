@@ -211,7 +211,9 @@ function updateShippingData($email, $shipping)
 		]
 	];
 
-	print_r($u['Item']);
+	$result = $this->dynamo->putItem($u);
+	print '<pre>';
+	print_r($result);
 	exit();
 }
 
