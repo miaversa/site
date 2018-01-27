@@ -41,7 +41,12 @@ function c_update($cart)
 {
 	$content = json_encode($cart);
 	$content = base64_encode($content);
+	
 	$secure = false;
+	if (! DEBUG) {
+		$secure = true;
+	}
+	
 	setcookie(COOKIE_NAME, $content, time()+60*60*24*30, '/', 'carrinho.miaversa.com.br', $secure, true);
 }
 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<payment>
+	<mode>default</mode>
+	<currency>BRL</currency>
+	<receiverEmail>daniela@miaversa.com.br</receiverEmail>
+	<method>boleto</method>
+	
+	<sender>
+		<hash>-hash-</hash>
+		<ip>189.6.19.12</ip>
+		<name>Tarcisio Ferreira Sassara</name>
+		<email>tarcisio@gmail.com</email>
+		<phone>
+			<areaCode>61</areaCode>
+			<number>996443323</number>
+		</phone>
+		<documents>
+			<document>
+				<type>CPF</type>
+				<value>19977922578</value>
+			</document>
+		</documents>
+		<bornDate>01/01/1986</bornDate>
+	</sender>
+	
+	<items>
+		<item>
+			<id>0A001</id>
+			<description>Produto PagSeguroI</description>
+			<amount>500.00</amount>
+			<quantity>1</quantity>
+		</item>
+	</items>
+
+	<reference>REF1</reference>
+	
+	<shipping>
+		<address>
+			<street>SCRN 716</street>
+			<number>50</number>
+			<complement>apto 201</complement>
+			<district>Asa Norte</district>
+			<city>Brasilia</city>
+			<state>DF</state>
+			<country>BRA</country>
+			<postalCode>70770660</postalCode>
+		</address>
+		<type>1</type>
+		<cost>1.00</cost>
+		<addressRequired>true</addressRequired>
+	</shipping>
+		
+	<dynamicPaymentMethodMessage>
+		<creditCard>Miaversa</creditCard>
+		<boleto>Miaversa</boleto>
+	</dynamicPaymentMethodMessage>
+</payment>

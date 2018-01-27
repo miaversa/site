@@ -1,6 +1,6 @@
 <?php
 
-define('DEBUG', 1);
+define('DEBUG', false);
 define('SALT', 'x');
 
 $site = [

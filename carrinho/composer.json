@@ -2,7 +2,6 @@
     "name": "miaversa/carrinho",
     "type": "project",
     "require": {
-        "dflydev/fig-cookies": "^1.0",
         "aws/aws-sdk-php": "^3.48",
         "twig/twig": "^2.4"
     },
