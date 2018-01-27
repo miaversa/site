@@ -179,22 +179,11 @@ function updateShippingData($email, $shipping)
 		],
 	]);
 
-	$u = $dynamo->getItem([
-		'Key' => [
-			'email' => [
-			'S' => $email,
-			]
-		],
-		'TableName' => 'users',
-	]);
+	$u = $dynamo->getItem(['Key' => ['email' => ['S' => $email]], 'TableName' => 'users']);
 
 	if(is_null($u['Item'])) {
 		return false;
 	}
-
-	print '<pre>';
-	print_r($u);
-	exit();
 
 	$u['Item']['shipping'] = [
 		'M' => [
@@ -212,7 +201,13 @@ function updateShippingData($email, $shipping)
 		]
 	];
 
-	$result = $dynamo->putItem($u);
+	$newItem = [
+		'Key'       => ['email' => ['S' => $email]],
+		'Item'      => $u['Item'],
+		'TableName' => 'users',
+	];
+
+	$result = $dynamo->putItem($newItem);
 	print '<pre>';
 	print_r($result);
 	exit();
