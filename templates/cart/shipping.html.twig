@@ -6,27 +6,27 @@
 			<input type="hidden" name="csrf" value="{{csrf}}" />
 			
 			<p>endereco<br/>
-			<input type="text" name="data[address][street]" value="SCRN 716 Bloco F" /></p>
+			<input type="text" name="data[address][street]" value="{{form.address.street}}" /></p>
 			
 			<p>numero<br/>
-			<input type="text" name="data[address][number]" value="50" /></p>
+			<input type="text" name="data[address][number]" value="{{form.address.number}}" /></p>
 
 			<p>complement<br/>
-			<input type="text" name="data[address][complement]" value="apto 203" /></p>
+			<input type="text" name="data[address][complement]" value="{{form.address.complement}}" /></p>
 
 			<p>district<br/>
-			<input type="text" name="data[address][district]" value="Asa Norte" /></p>
+			<input type="text" name="data[address][district]" value="{{form.address.district}}" /></p>
 
 			<p>city<br/>
-			<input type="text" name="data[address][city]" value="Brasilia" /></p>
+			<input type="text" name="data[address][city]" value="{{form.address.city}}" /></p>
 
 			<p>state<br/>
-			<input type="text" name="data[address][state]" value="DF" /></p>
+			<input type="text" name="data[address][state]" value="{{form.address.state}}" /></p>
 
-			<input type="hidden" name="data[address][country]" value="BRA" />
+			<input type="hidden" name="data[address][country]" value="{{form.address.country}}" />
 
 			<p>CEP<br/>
-			<input type="text" name="data[address][postalCode]" value="70770660" /></p>
+			<input type="text" name="data[address][postalCode]" value="{{form.address.postalCode}}" /></p>
 
 			<p>
 				<input type="submit" />

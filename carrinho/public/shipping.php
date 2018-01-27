@@ -8,19 +8,17 @@ if (is_null($session)) {
 }
 
 $data = getShippingData();
-print '<pre>';
-print_r($data);
-exit();
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-	$data = getShippingData();
-	print_r($data);
+	//$data = getShippingData();
+	print_r($_POST);
 	exit();
 }
 
 $params = [
 	'site' => $site,
-	'csrf' => sha1(date('H'))
+	'csrf' => sha1(date('H')),
+	'form' => $data
 ];
 
 $twig = getTemplates();
