@@ -208,14 +208,14 @@ function getShippingData()
 	}
 
 	$data = ['address' => [
-		'street' => $userData['shipping']['M']['address']['M']['street'],
-		'number' => $userData['shipping']['M']['address']['M']['number'],
-		'complement' => $userData['shipping']['M']['address']['M']['complement'],
-		'district' => $userData['shipping']['M']['address']['M']['district'],
-		'city' => $userData['shipping']['M']['address']['M']['city'],
-		'state' => $userData['shipping']['M']['address']['M']['state'],
-		'country' => $userData['shipping']['M']['address']['M']['country'],
-		'postalCode' => $userData['shipping']['M']['address']['M']['postalCode'],
+		'street' => $userData['shipping']['M']['address']['M']['street']['S'],
+		'number' => $userData['shipping']['M']['address']['M']['number']['S'],
+		'complement' => $userData['shipping']['M']['address']['M']['complement']['S'],
+		'district' => $userData['shipping']['M']['address']['M']['district']['S'],
+		'city' => $userData['shipping']['M']['address']['M']['city']['S'],
+		'state' => $userData['shipping']['M']['address']['M']['state']['S'],
+		'country' => $userData['shipping']['M']['address']['M']['country']['S'],
+		'postalCode' => $userData['shipping']['M']['address']['M']['postalCode']['S'],
 	]];
 
 	//$data = getShippingDataFromRequest();
