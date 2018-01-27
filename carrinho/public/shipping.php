@@ -3,7 +3,7 @@
 require __DIR__ . '/../bootstrap.php';
 
 $email = s_get();
-if (is_null($session)) {
+if (is_null($email)) {
 	redirect('/login.php');
 }
 
