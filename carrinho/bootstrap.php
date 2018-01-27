@@ -200,10 +200,21 @@ function s_set($email)
 // ##############################################################
 function getShippingData()
 {
+	$data = ['address' => [
+		'street' => '',
+		'number' => '',
+		'complement' => '',
+		'district' => '',
+		'city' => '',
+		'state' => '',
+		'country' => '',
+		'postalCode' => '',
+	]];
+
 	$email = s_get();
 	$userData = getUser($email);
 
-	if(isset($userData['Item']) & is_null($userData['Item'])) {
+	if( (! isset($userData['shipping'])) || is_null($userData['shipping'])) {
 		return $data;
 	}
 
