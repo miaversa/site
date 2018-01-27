@@ -2,8 +2,9 @@
 
 require __DIR__ . '/../bootstrap.php';
 
-if ( ! isset($_COOKIE['msession'])) {
-	redirect('/login.php');
+$session = s_get();
+if (! is_null($session)) {
+	redirect('/payment.php');
 }
 
 $twig = getTemplates();

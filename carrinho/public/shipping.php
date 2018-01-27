@@ -2,9 +2,15 @@
 
 require __DIR__ . '/../bootstrap.php';
 
-if ( ! isset($_COOKIE['msession'])) {
+$session = s_get();
+if (is_null($session)) {
 	redirect('/login.php');
 }
 
+$params = [
+	'site' => $site,
+	'csrf' => sha1(date('H'))
+];
+
 $twig = getTemplates();
-echo $twig->render('cart/payment.html.twig', $params);
+echo $twig->render('cart/shipping.html.twig', $params);

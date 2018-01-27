@@ -1,0 +1,36 @@
+{% extends "cart/base.html.twig" %}
+
+{% block main %}
+	<section class="center pa3 cf">
+		<form method="post">
+			<input type="hidden" name="csrf" value="{{csrf}}" />
+			
+			<p>endereco<br/>
+			<input type="text" name="data[address][street]" value="SCRN 716 Bloco F" /></p>
+			
+			<p>numero<br/>
+			<input type="text" name="data[address][number]" value="50" /></p>
+
+			<p>complement<br/>
+			<input type="text" name="data[address][complement]" value="apto 203" /></p>
+
+			<p>district<br/>
+			<input type="text" name="data[address][district]" value="Asa Norte" /></p>
+
+			<p>city<br/>
+			<input type="text" name="data[address][city]" value="Brasilia" /></p>
+
+			<p>state<br/>
+			<input type="text" name="data[address][state]" value="DF" /></p>
+
+			<input type="hidden" name="data[address][country]" value="BRA" />
+
+			<p>CEP<br/>
+			<input type="hidden" name="data[address][postalCode]" value="70770660" /></p>
+
+			<p>
+				<input type="submit" />
+			</p>
+		</form>
+	</section>
+{% endblock %}
