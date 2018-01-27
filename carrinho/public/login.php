@@ -24,8 +24,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 		exit();
 	}
 
-	print_r([$csrf, $email, $password]);
-	exit();
+	auth($email, $password);
 }
 
 $params = [
