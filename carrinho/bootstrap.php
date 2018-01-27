@@ -168,6 +168,35 @@ function getUser($email)
 	return $u['Item'];
 }
 
+function updateShippingData($email, $shipping)
+{
+	$dynamo = new \Aws\DynamoDb\DynamoDbClient([
+		'region' => 'sa-east-1',
+		'version' => 'latest',
+		'credentials' => [
+			'key'    => AWS_KEY,
+			'secret' => AWS_SECRET,
+		],
+	]);
+
+	$u = $dynamo->getItem([
+		'Key' => [
+			'email' => [
+			'S' => $email,
+			]
+		],
+		'TableName' => 'users',
+	]);
+
+	if(is_null($u['Item'])) {
+		return false;
+	}
+
+	print '<pre>';
+	print_r($u);
+	exit();
+}
+
 // ##############################################################
 // LOGIN
 // ##############################################################

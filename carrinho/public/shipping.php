@@ -10,8 +10,9 @@ if (is_null($session)) {
 $data = getShippingData();
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-	print_r($data);
+	updateShippingData($email, $shipping);
 	exit();
+	redirect('/payment.php');
 }
 
 $params = [
