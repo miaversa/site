@@ -7,3 +7,9 @@ function getTemplates()
 	$twig->addGlobal('DEBUG', DEBUG);
 	return $twig;
 }
+
+function redirect($location)
+{
+	header("Location: {$location}");
+	exit();
+}
