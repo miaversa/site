@@ -2,6 +2,11 @@
 
 require __DIR__ . '/../bootstrap.php';
 
+$session = s_get();
+if (! is_null($session)) {
+	redirect('/payment.php');
+}
+
 if('POST' == $_SERVER['REQUEST_METHOD']) {
 	$csrf = '';
 	$email = '';
@@ -27,11 +32,9 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 	$hash = sha1($password);
 
 	if (auth($email, $hash)) {
-		print 'auth ok';
-	} else {
-		print 'autho not';
+		s_set($email);
+		redirect('/login.php');
 	}
-	exit();
 }
 
 $params = [
