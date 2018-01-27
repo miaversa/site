@@ -203,7 +203,7 @@ function getShippingData()
 	$email = s_get();
 	$userData = getUser($email);
 
-	if(is_null($userData['Item'])) {
+	if(isset($userData['Item']) & is_null($userData['Item'])) {
 		return $data;
 	}
 
