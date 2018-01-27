@@ -141,6 +141,33 @@ function auth($email, $hash)
 	return false;
 }
 
+function getUser($email)
+{
+	$dynamo = new \Aws\DynamoDb\DynamoDbClient([
+		'region' => 'sa-east-1',
+		'version' => 'latest',
+		'credentials' => [
+			'key'    => AWS_KEY,
+			'secret' => AWS_SECRET,
+		],
+	]);
+
+	$u = $dynamo->getItem([
+		'Key' => [
+			'email' => [
+			'S' => $email,
+			]
+		],
+		'TableName' => 'users',
+	]);
+
+	if(is_null($u['Item'])) {
+		return null;
+	}
+
+	return $u['Item'];
+}
+
 // ##############################################################
 // LOGIN
 // ##############################################################
@@ -173,6 +200,11 @@ function s_set($email)
 // ##############################################################
 function getShippingData()
 {
+	$email = s_get();
+	$userData = getUser($email);
+
+	print_r($userData);
+	exit();
 	$data = getShippingDataFromRequest();
 	return $data;
 }
