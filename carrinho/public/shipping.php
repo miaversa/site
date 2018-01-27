@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../bootstrap.php';
 
-$session = s_get();
+$email = s_get();
 if (is_null($session)) {
 	redirect('/login.php');
 }
@@ -10,7 +10,7 @@ if (is_null($session)) {
 $data = getShippingData();
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-	updateShippingData($email, $shipping);
+	updateShippingData($email, $data);
 	exit();
 	redirect('/payment.php');
 }
