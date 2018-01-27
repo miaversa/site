@@ -193,7 +193,25 @@ function updateShippingData($email, $shipping)
 	}
 
 	print '<pre>';
-	print_r($u);
+	print_r($u['Item']);
+
+	$u['Item']['shipping'] = [
+		'M' => [
+			'address' => [
+				'M' => [
+					'number' => ['S' => $shipping['address']['number']],
+					'country' => ['S' => $shipping['address']['country']],
+					'city' => ['S' => $shipping['address']['city']],
+					'street' => ['S' => $shipping['address']['street']],
+					'district' => ['S' => $shipping['address']['district']],
+					'postalCode' => ['S' => $shipping['address']['postalCode']],
+					'complement' => ['S' => $shipping['address']['complement']],
+				]
+			]
+		]
+	];
+
+	print_r($u['Item']);
 	exit();
 }
 
