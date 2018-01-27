@@ -13,3 +13,9 @@ function redirect($location)
 	header("Location: {$location}");
 	exit();
 }
+
+function csrf_validation($token)
+{
+	$expected = sha1(date('H'));
+	return $token == $expected;
+}
