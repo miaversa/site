@@ -20,6 +20,13 @@ function auth($email, $password)
 		'TableName' => 'users',
 	]);
 
-	var_dump($u);
-	exit();
+	if(is_null($u['Item'])) {
+		return false;
+	}
+
+	if ($password == $u['Item']['password']['S']) {
+		return true;
+	}
+
+	return false;
 }
