@@ -12,7 +12,8 @@ $data = [];
 $params = [
 	'site' => $site,
 	'csrf' => sha1(date('H')),
-	'form' => $data
+	'form' => $data,
+	'pagseguro_id' => getIDPagseguro()
 ];
 
 $twig = getTemplates();

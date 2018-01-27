@@ -13,6 +13,13 @@
 	ga('send', 'pageview');
 	</script>
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
+	
+	{% if pagseguro_id %}
+	<script src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+	<script>
+		PagSeguroDirectPayment.setSessionId('{{pagseguro_id}}');
+	</script>
+	{% endif %}
 {% endif %}
 </head>
 <body class="bg-white black-70 sans-serif">

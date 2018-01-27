@@ -328,3 +328,28 @@ function getShippingDataFromRequest()
 
 	return $data;
 }
+
+// ##############################################################
+// PAGSEGURO
+// ##############################################################
+
+function getIDPagseguro()
+{
+	$client = new \GuzzleHttp\Client();
+	$options = [
+		'form_params' => [
+			'email' => 'daniela@miaversa.com.br',
+			'token' => '9075CED20CB94F168B4F9BCC4953404D'
+		]
+	];
+	$response = $client->post('https://ws.sandbox.pagseguro.uol.com.br/v2/sessions', $options);
+	if (200 != $response->getStatusCode()) {
+		print "erro ao obter id sessao\n";
+		exit();
+	}
+	$body = $response->getBody();
+	$start = strpos($body, '<id>');
+	$end = strpos($body, '</id>');
+	$id = substr($body, $start + 4, $end - $start - 4);
+	return $id;
+}
