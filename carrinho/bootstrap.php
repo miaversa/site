@@ -209,9 +209,11 @@ function updateShippingData($email, $shipping)
 	];
 
 	$result = $dynamo->putItem($newItem);
-	print '<pre>';
-	print_r($result);
-	exit();
+	if ($result) {
+		return true;
+	}
+
+	return false;
 }
 
 // ##############################################################

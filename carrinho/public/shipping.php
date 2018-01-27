@@ -10,9 +10,9 @@ if (is_null($email)) {
 $data = getShippingData();
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-	updateShippingData($email, $data);
-	exit();
-	redirect('/payment.php');
+	if(updateShippingData($email, $data)) {
+		redirect('/payment.php');
+	}
 }
 
 $params = [
