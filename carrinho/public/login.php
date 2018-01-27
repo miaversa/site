@@ -31,6 +31,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 	} else {
 		print 'autho not';
 	}
+	exit();
 }
 
 $params = [
