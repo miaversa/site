@@ -193,7 +193,8 @@ function updateShippingData($email, $shipping)
 	}
 
 	print '<pre>';
-	print_r($u['Item']);
+	print_r($u);
+	exit();
 
 	$u['Item']['shipping'] = [
 		'M' => [
@@ -211,7 +212,7 @@ function updateShippingData($email, $shipping)
 		]
 	];
 
-	$result = $this->dynamo->putItem($u);
+	$result = $dynamo->putItem($u);
 	print '<pre>';
 	print_r($result);
 	exit();
