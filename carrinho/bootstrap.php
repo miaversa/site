@@ -203,9 +203,22 @@ function getShippingData()
 	$email = s_get();
 	$userData = getUser($email);
 
-	print_r($userData);
-	exit();
-	$data = getShippingDataFromRequest();
+	if(is_null($userData['Item'])) {
+		return $data;
+	}
+
+	$data = ['address' => [
+		'street' => $userData['shipping']['M']['address']['M']['street'],
+		'number' => $userData['shipping']['M']['address']['M']['number'],
+		'complement' => $userData['shipping']['M']['address']['M']['complement'],
+		'district' => $userData['shipping']['M']['address']['M']['district'],
+		'city' => $userData['shipping']['M']['address']['M']['city'],
+		'state' => $userData['shipping']['M']['address']['M']['state'],
+		'country' => $userData['shipping']['M']['address']['M']['country'],
+		'postalCode' => $userData['shipping']['M']['address']['M']['postalCode'],
+	]];
+
+	//$data = getShippingDataFromRequest();
 	return $data;
 }
 

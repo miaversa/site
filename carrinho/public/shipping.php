@@ -8,6 +8,8 @@ if (is_null($session)) {
 }
 
 $data = getShippingData();
+print '<pre>';
+print_r($data);
 exit();
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
