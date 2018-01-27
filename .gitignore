@@ -2,3 +2,4 @@ vendor/
 output/
 node_modules/
 carrinho/vendor/
+composer.phar
