@@ -16,7 +16,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 	}
 
 	if (isset($_POST['password'])) {
-		$email = $_POST['password'];
+		$password = $_POST['password'];
 	}
 
 	if (! csrf_validation($csrf)) {
