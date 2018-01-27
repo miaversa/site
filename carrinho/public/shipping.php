@@ -7,6 +7,9 @@ if (is_null($session)) {
 	redirect('/login.php');
 }
 
+$data = getShippingData();
+exit();
+
 if('POST' == $_SERVER['REQUEST_METHOD']) {
 	$data = getShippingData();
 	print_r($data);
