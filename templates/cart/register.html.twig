@@ -5,18 +5,20 @@
 		<form method="post">
 			<input type="hidden" name="csrf" value="{{csrf}}" />
 			<p>
-				email<br/>
-				<input type="text" name="email" />
+				nome completo<br/>
+				<input type="text" name="data[name]" />
+			</p>
+			<p>
+				Email<br/>
+				<input type="text" name="data[email]" />
 			</p>
 			<p>
 				password<br/>
-				<input type="password" name="password" />
+				<input type="password" name="data[password]" />
 			</p>
 			<p>
 				<input type="submit" />
 			</p>
 		</form>
-
-		<p><a href="/register.php">Não tenho cadastro</a></p>
 	</section>
 {% endblock %}

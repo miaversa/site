@@ -4,7 +4,7 @@
 	<currency>BRL</currency>
 	<receiverEmail>daniela@miaversa.com.br</receiverEmail>
 	<method>boleto</method>
-	
+
 	<sender>
 		<hash>{{hash}}</hash>
 		<name>{{user.name}}</name>
@@ -21,7 +21,7 @@
 		</documents>
 		<bornDate>01/01/1986</bornDate>
 	</sender>
-	
+
 	<items>
 {% for item in cart.items %}
 		<item>
@@ -32,7 +32,7 @@
 		</item>
 {% endfor %}
 	</items>
-	
+
 	<shipping>
 		<address>
 			<street>{{user.shipping.address.street}}</street>
@@ -48,7 +48,7 @@
 		<cost>1.00</cost>
 		<addressRequired>true</addressRequired>
 	</shipping>
-		
+
 	<dynamicPaymentMethodMessage>
 		<boleto>Miaversa</boleto>
 	</dynamicPaymentMethodMessage>
