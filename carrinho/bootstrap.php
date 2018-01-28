@@ -274,13 +274,13 @@ function getRegisterData()
 
 	if('POST' == $_SERVER['REQUEST_METHOD']) {
 		if (isset($_POST['data']['name'])) {
-			$data['name'] = $_POST['data']['name']
+			$data['name'] = $_POST['data']['name'];
 		}
 		if (isset($_POST['data']['email'])) {
-			$data['email'] = $_POST['data']['email']
+			$data['email'] = $_POST['data']['email'];
 		}
 		if (isset($_POST['data']['password'])) {
-			$data['password'] = $_POST['data']['password']
+			$data['password'] = $_POST['data']['password'];
 		}
 	}
 
