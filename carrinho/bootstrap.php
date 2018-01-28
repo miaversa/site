@@ -300,11 +300,6 @@ function getShippingDataFromDB()
 		'country' => $userData['shipping']['address']['country'],
 		'postalCode' => $userData['shipping']['address']['postalCode'],
 	]];
-
-	print '<pre>';
-	print_r($data);
-	exit();
-
 	return $data;
 }
 
@@ -378,14 +373,10 @@ function boleto($hash)
 {
 	$email = s_get();
 	$user = getUser($email);
-	var_dump($user);
-	exit();
+	
 	$params = [
-		'sender' => [
-			'hash' => $hash,
-			'name' => $user['name'],
-			'email' => $user['email'],
-		]
+		'hash' => $hash,
+		'user' => $user
 	];
 
 	$twig = getTemplates();

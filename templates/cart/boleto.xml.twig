@@ -6,9 +6,9 @@
 	<method>boleto</method>
 	
 	<sender>
-		<hash>{{sender.hash}}</hash>
-		<name>{{sender.name}}</name>
-		<email>{{sender.email}}</email>
+		<hash>{{hash}}</hash>
+		<name>{{user.name}}</name>
+		<email>{{user.email}}</email>
 		<phone>
 			<areaCode>61</areaCode>
 			<number>985632143</number>
@@ -33,14 +33,14 @@
 	
 	<shipping>
 		<address>
-			<street>SCRN 716</street>
-			<number>50</number>
-			<complement>apto 201</complement>
-			<district>Asa Norte</district>
-			<city>Brasilia</city>
-			<state>DF</state>
-			<country>BRA</country>
-			<postalCode>70770660</postalCode>
+			<street>{{user.shipping.address.street}}</street>
+			<number>{{user.shipping.address.number}}</number>
+			<complement>{{user.shipping.address.complement}}</complement>
+			<district>{{user.shipping.address.district}}</district>
+			<city>{{user.shipping.address.city}}</city>
+			<state>{{user.shipping.address.state}}</state>
+			<country>{{user.shipping.address.country}}</country>
+			<postalCode>{{user.shipping.address.postalCode}}</postalCode>
 		</address>
 		<type>1</type>
 		<cost>1.00</cost>
@@ -48,7 +48,6 @@
 	</shipping>
 		
 	<dynamicPaymentMethodMessage>
-		<creditCard>Miaversa</creditCard>
 		<boleto>Miaversa</boleto>
 	</dynamicPaymentMethodMessage>
 </payment>
