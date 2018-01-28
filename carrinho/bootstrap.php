@@ -165,7 +165,24 @@ function getUser($email)
 		return null;
 	}
 
-	return $u['Item'];
+	$data = [
+		'name' => $userData['name']['S'],
+		'email' => $userData['email']['S'],
+		'address' => [
+			'street' => $userData['shipping']['M']['address']['M']['street']['S'],
+			'number' => $userData['shipping']['M']['address']['M']['number']['S'],
+			'complement' => $userData['shipping']['M']['address']['M']['complement']['S'],
+			'district' => $userData['shipping']['M']['address']['M']['district']['S'],
+			'city' => $userData['shipping']['M']['address']['M']['city']['S'],
+			'state' => $userData['shipping']['M']['address']['M']['state']['S'],
+			'country' => $userData['shipping']['M']['address']['M']['country']['S'],
+			'postalCode' => $userData['shipping']['M']['address']['M']['postalCode']['S'],
+	]];
+
+	print '<pre>';
+	print_r($data);
+	exit();
+	return $data;
 }
 
 function updateShippingData($email, $shipping)
@@ -275,14 +292,14 @@ function getShippingDataFromDB()
 	}
 
 	$data = ['address' => [
-		'street' => $userData['shipping']['M']['address']['M']['street']['S'],
-		'number' => $userData['shipping']['M']['address']['M']['number']['S'],
-		'complement' => $userData['shipping']['M']['address']['M']['complement']['S'],
-		'district' => $userData['shipping']['M']['address']['M']['district']['S'],
-		'city' => $userData['shipping']['M']['address']['M']['city']['S'],
-		'state' => $userData['shipping']['M']['address']['M']['state']['S'],
-		'country' => $userData['shipping']['M']['address']['M']['country']['S'],
-		'postalCode' => $userData['shipping']['M']['address']['M']['postalCode']['S'],
+		'street' => $userData['shipping']['address']['street'],
+		'number' => $userData['shipping']['address']['number'],
+		'complement' => $userData['shipping']['address']['complement'],
+		'district' => $userData['shipping']['address']['district'],
+		'city' => $userData['shipping']['address']['city'],
+		'state' => $userData['shipping']['address']['state'],
+		'country' => $userData['shipping']['address']['country'],
+		'postalCode' => $userData['shipping']['address']['postalCode'],
 	]];
 
 	return $data;
