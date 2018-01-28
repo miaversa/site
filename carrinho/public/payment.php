@@ -7,7 +7,7 @@ if (is_null($email)) {
 	redirect('/login.php');
 }
 
-$data = [];
+$twig = getTemplates();
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
 	$hash = '';
@@ -15,8 +15,12 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 		$hash = $_POST['sender_hash'];
 	}
 	$response = boleto($hash);
-	print_r($response);
-	exit();
+
+	$params = [
+		'site' => $site,
+		'paymentLink' => $response->paymentLink,
+	];
+	echo $twig->render('cart/boleto.html.twig', $params);
 }
 
 $params = [
