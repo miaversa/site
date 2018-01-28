@@ -25,7 +25,7 @@
 	<items>
 {% for item in cart.items %}
 		<item>
-			<id>{{item.sku}}</id>
+			<id>{{item.product.sku}}</id>
 			<description>{{item.product.name}}</description>
 			<amount>{{item.product.price|number_format(2, '.', '')}}</amount>
 			<quantity>1</quantity>
