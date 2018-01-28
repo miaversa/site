@@ -259,6 +259,34 @@ function s_set($email)
 	setcookie(SESSION_COOKIE_NAME, $content, time()+60*60*24*30, '/', 'carrinho.miaversa.com.br', $secure, true);
 }
 
+
+// ##############################################################
+// REGISTER
+// ##############################################################
+
+function getRegisterData()
+{
+	$data = [
+		'name' => '',
+		'email' => '',
+		'password' => ''
+	];
+
+	if('POST' == $_SERVER['REQUEST_METHOD']) {
+		if (isset($_POST['data']['name'])) {
+			$data['name'] = $_POST['data']['name']
+		}
+		if (isset($_POST['data']['email'])) {
+			$data['email'] = $_POST['data']['email']
+		}
+		if (isset($_POST['data']['password'])) {
+			$data['password'] = $_POST['data']['password']
+		}
+	}
+
+	return $data;
+}
+
 // ##############################################################
 // SHIPPING
 // ##############################################################

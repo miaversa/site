@@ -7,8 +7,16 @@ if (! is_null($email)) {
 	redirect('/payment.php');
 }
 
+$data = getRegisterData();
+
+if('POST' == $_SERVER['REQUEST_METHOD']) {
+	userRegister($data);
+	s_set($data['email']);
+	redirect('/login.php');
+}
 
 $params = [
+	'data' => $data,
 	'site' => $site,
 	'csrf' => sha1(date('H'))
 ];
