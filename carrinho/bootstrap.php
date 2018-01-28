@@ -338,8 +338,8 @@ function getIDPagseguro()
 	$client = new \GuzzleHttp\Client();
 	$options = [
 		'form_params' => [
-			'email' => 'daniela@miaversa.com.br',
-			'token' => '9075CED20CB94F168B4F9BCC4953404D'
+			'email' => PAGSEGURO_EMAIL,
+			'token' => PAGSEGURO_TOKEN,
 		]
 	];
 	$response = $client->post('https://ws.sandbox.pagseguro.uol.com.br/v2/sessions', $options);
