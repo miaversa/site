@@ -14,7 +14,7 @@
 	</script>
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	
-	{% if pagseguro_id %}
+	{% if pagseguro_id is defined %}
 	<script src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
 	<script>
 		PagSeguroDirectPayment.setSessionId('{{pagseguro_id}}');
