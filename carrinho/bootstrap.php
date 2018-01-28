@@ -287,6 +287,36 @@ function getRegisterData()
 	return $data;
 }
 
+function userRegister($data)
+{
+	$dynamo = new \Aws\DynamoDb\DynamoDbClient([
+		'region' => 'sa-east-1',
+		'version' => 'latest',
+		'credentials' => [
+			'key'    => AWS_KEY,
+			'secret' => AWS_SECRET,
+		],
+	]);
+
+	$u = [
+		'Item' => [
+			'email' => [
+				'S' => $data['email'],
+			],
+			'name' => [
+				'S' => $data['name'],
+			],
+			'password' => [
+				'S' => sha1($data['password']),
+			],
+		],
+		'TableName' => 'users',
+	];	
+	$result = $this->dynamo->putItem($u);
+	print_r($result);
+	exit();
+}
+
 // ##############################################################
 // SHIPPING
 // ##############################################################
