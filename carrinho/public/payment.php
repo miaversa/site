@@ -7,6 +7,11 @@ if (is_null($email)) {
 	redirect('/login.php');
 }
 
+$user = getUser($email);
+if (!isset($user['shipping'])) {
+	redirect('/shipping.php');
+}
+
 $twig = getTemplates();
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {

@@ -167,20 +167,22 @@ function getUser($email)
 
 	$data = [
 		'name' => $u['Item']['name']['S'],
-		'email' => $u['Item']['email']['S'],
-		'shipping' => [
-			'address' => [
-				'street' => $u['Item']['shipping']['M']['address']['M']['street']['S'],
-				'number' => $u['Item']['shipping']['M']['address']['M']['number']['S'],
-				'complement' => $u['Item']['shipping']['M']['address']['M']['complement']['S'],
-				'district' => $u['Item']['shipping']['M']['address']['M']['district']['S'],
-				'city' => $u['Item']['shipping']['M']['address']['M']['city']['S'],
-				'state' => $u['Item']['shipping']['M']['address']['M']['state']['S'],
-				'country' => $u['Item']['shipping']['M']['address']['M']['country']['S'],
-				'postalCode' => $u['Item']['shipping']['M']['address']['M']['postalCode']['S'],
-			]
-		]
+		'email' => $u['Item']['email']['S']
 	];
+
+	if (isset($u['Item']['shipping'])) {
+		$data['shipping'] = ['address' => [
+			'street' => $u['Item']['shipping']['M']['address']['M']['street']['S'],
+			'number' => $u['Item']['shipping']['M']['address']['M']['number']['S'],
+			'complement' => $u['Item']['shipping']['M']['address']['M']['complement']['S'],
+			'district' => $u['Item']['shipping']['M']['address']['M']['district']['S'],
+			'city' => $u['Item']['shipping']['M']['address']['M']['city']['S'],
+			'state' => $u['Item']['shipping']['M']['address']['M']['state']['S'],
+			'country' => $u['Item']['shipping']['M']['address']['M']['country']['S'],
+			'postalCode' => $u['Item']['shipping']['M']['address']['M']['postalCode']['S'],
+		]];
+	}
+
 	return $data;
 }
 
