@@ -10,9 +10,10 @@ if (! is_null($email)) {
 $data = getRegisterData();
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-	userRegister($data);
-	s_set($data['email']);
-	redirect('/login.php');
+	if (userRegister($data)) {
+		s_set($data['email']);
+		redirect('/login.php');
+	}
 }
 
 $params = [
