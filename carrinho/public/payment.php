@@ -21,6 +21,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 		'paymentLink' => $response->paymentLink,
 	];
 	echo $twig->render('cart/boleto.html.twig', $params);
+	exit();
 }
 
 $params = [
