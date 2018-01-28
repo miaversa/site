@@ -377,20 +377,16 @@ function boleto($hash)
 	$twig = getTemplates();
 	$content = $twig->render('cart/boleto.xml.twig', $params);
 
-	$u = 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions';
+	$urlx = 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/?email=' . PAGSEGURO_EMAIL . "&token=" . PAGSEGURO_TOKEN;
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $urlx);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml; charset=UTF-8'));
+	$data = curl_exec($ch);
+	curl_close($ch);
 
-	$opt = [
-		'headers' => ['Content-Type' => 'application/xml; charset=UTF-8'],
-		'query' => [
-			'email' => PAGSEGURO_EMAIL,
-			'token' => PAGSEGURO_TOKEN,
-		],
-		'body' => $content
-	];
-
-	$client = new \GuzzleHttp\Client();
-	$response = $client->request('POST', $u, $opt);
-	print_r($response);
-	print $response->getBody();
+	print_r($data);
 	exit();
 }
