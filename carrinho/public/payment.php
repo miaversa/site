@@ -14,7 +14,9 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 	if (isset($_POST['sender_hash'])) {
 		$hash = $_POST['sender_hash'];
 	}
-	boleto($hash);
+	$response = boleto($hash);
+	print_r($response);
+	exit();
 }
 
 $params = [

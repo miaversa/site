@@ -386,7 +386,6 @@ function boleto($hash)
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml; charset=UTF-8'));
 	$data = curl_exec($ch);
 	curl_close($ch);
-
-	print_r($data);
-	exit();
+	$data = simplexml_load_string($data);
+	return $data;
 }
