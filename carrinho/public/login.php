@@ -2,8 +2,8 @@
 
 require __DIR__ . '/../bootstrap.php';
 
-$session = s_get();
-if (! is_null($session)) {
+$email = s_get();
+if (! is_null($email)) {
 	redirect('/payment.php');
 }
 
