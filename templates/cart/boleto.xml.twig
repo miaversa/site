@@ -7,35 +7,29 @@
 	
 	<sender>
 		<hash>{{sender.hash}}</hash>
-		<ip>{{sender.ip}}</ip>
-		
 		<name>{{sender.name}}</name>
 		<email>{{sender.email}}</email>
 		<phone>
-			<areaCode>{{sender.phone.area_code}}</areaCode>
-			<number>{{sender.phone.number}}</number>
+			<areaCode>61</areaCode>
+			<number>985632143</number>
 		</phone>
 		<documents>
 			<document>
 				<type>CPF</type>
-				<value>{{sender.cpf}}</value>
+				<value>65017377530</value>
 			</document>
 		</documents>
 		<bornDate>01/01/1986</bornDate>
 	</sender>
 	
-	{{% for item in items %}}
 	<items>
 		<item>
-			<id>{{item.sku}}</id>
-			<description>{{item.description}}</description>
-			<amount>{{item.amount}}</amount>
+			<id>234</id>
+			<description>description</description>
+			<amount>100.20</amount>
 			<quantity>1</quantity>
 		</item>
 	</items>
-	{{% endfor %}}
-	
-	<reference>REF1</reference>
 	
 	<shipping>
 		<address>

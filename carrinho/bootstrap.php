@@ -353,3 +353,23 @@ function getIDPagseguro()
 	$id = substr($body, $start + 4, $end - $start - 4);
 	return $id;
 }
+
+function boleto($hash)
+{
+	$email = s_get();
+	$user = getUser($email);
+
+	$params = [
+		'sender' => [
+			'hash' => $hash,
+			'name' => $user['name'],
+			'email' => $user['email'],
+		]
+	];
+
+	$twig = getTemplates();
+	$content = $twig->render('cart/boleto.xml.twig', $params);
+
+	print $content;
+	exit();
+}

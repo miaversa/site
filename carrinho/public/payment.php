@@ -10,8 +10,11 @@ if (is_null($email)) {
 $data = [];
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-	print_r($_POST);
-	exit();
+	$hash = '';
+	if (isset($_POST['sender_hash'])) {
+		$hash = $_POST['sender_hash'];
+	}
+	boleto($hash);
 }
 
 $params = [
