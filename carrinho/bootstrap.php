@@ -358,7 +358,8 @@ function boleto($hash)
 {
 	$email = s_get();
 	$user = getUser($email);
-
+	var_dump($user);
+	exit();
 	$params = [
 		'sender' => [
 			'hash' => $hash,
