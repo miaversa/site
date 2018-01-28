@@ -312,7 +312,7 @@ function userRegister($data)
 		],
 		'TableName' => 'users',
 	];	
-	$result = $this->dynamo->putItem($u);
+	$result = $dynamo->putItem($u);
 	print_r($result);
 	exit();
 }
