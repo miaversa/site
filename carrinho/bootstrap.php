@@ -373,15 +373,24 @@ function boleto($hash)
 {
 	$email = s_get();
 	$user = getUser($email);
-	
-	$params = [
-		'hash' => $hash,
-		'user' => $user
-	];
-
+	$params = ['hash' => $hash, 'user' => $user];
 	$twig = getTemplates();
 	$content = $twig->render('cart/boleto.xml.twig', $params);
 
-	print $content;
+	$u = 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions';
+
+	$opt = [
+		'headers' => ['Content-Type' => 'application/xml; charset=UTF-8'],
+		'query' => [
+			'email' => PAGSEGURO_EMAIL,
+			'token' => PAGSEGURO_TOKEN,
+		],
+		'body' => $content
+	];
+
+	$client = new \GuzzleHttp\Client();
+	$response = $client->request('POST', $u, $opt);
+	print_r($response);
+	print $response->getBody();
 	exit();
 }
