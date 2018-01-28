@@ -166,17 +166,17 @@ function getUser($email)
 	}
 
 	$data = [
-		'name' => $userData['name']['S'],
-		'email' => $userData['email']['S'],
+		'name' => $u['name']['S'],
+		'email' => $u['email']['S'],
 		'address' => [
-			'street' => $userData['shipping']['M']['address']['M']['street']['S'],
-			'number' => $userData['shipping']['M']['address']['M']['number']['S'],
-			'complement' => $userData['shipping']['M']['address']['M']['complement']['S'],
-			'district' => $userData['shipping']['M']['address']['M']['district']['S'],
-			'city' => $userData['shipping']['M']['address']['M']['city']['S'],
-			'state' => $userData['shipping']['M']['address']['M']['state']['S'],
-			'country' => $userData['shipping']['M']['address']['M']['country']['S'],
-			'postalCode' => $userData['shipping']['M']['address']['M']['postalCode']['S'],
+			'street' => $u['shipping']['M']['address']['M']['street']['S'],
+			'number' => $u['shipping']['M']['address']['M']['number']['S'],
+			'complement' => $u['shipping']['M']['address']['M']['complement']['S'],
+			'district' => $u['shipping']['M']['address']['M']['district']['S'],
+			'city' => $u['shipping']['M']['address']['M']['city']['S'],
+			'state' => $u['shipping']['M']['address']['M']['state']['S'],
+			'country' => $u['shipping']['M']['address']['M']['country']['S'],
+			'postalCode' => $u['shipping']['M']['address']['M']['postalCode']['S'],
 	]];
 
 	print '<pre>';
