@@ -20,8 +20,6 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 		$hash = $_POST['sender_hash'];
 	}
 	$response = boleto($hash);
-	print_r($response);
-	exit();
 	$params = [
 		'site' => $site,
 		'paymentLink' => $response->paymentLink,
