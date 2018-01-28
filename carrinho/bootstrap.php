@@ -373,7 +373,8 @@ function boleto($hash)
 {
 	$email = s_get();
 	$user = getUser($email);
-	$params = ['hash' => $hash, 'user' => $user];
+	$cart = c_get();
+	$params = ['hash' => $hash, 'user' => $user, 'cart' => $cart];
 	$twig = getTemplates();
 	$content = $twig->render('cart/boleto.xml.twig', $params);
 

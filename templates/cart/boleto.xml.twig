@@ -23,12 +23,14 @@
 	</sender>
 	
 	<items>
+{% for item in cart.items %}
 		<item>
-			<id>234</id>
-			<description>description</description>
-			<amount>100.20</amount>
+			<id>item.sku</id>
+			<description>item.product.name</description>
+			<amount>{{item.product.price|number_format(2, '.', '')}}</amount>
 			<quantity>1</quantity>
 		</item>
+{% endfor %}
 	</items>
 	
 	<shipping>

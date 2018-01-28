@@ -27,7 +27,6 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 $params = [
 	'site' => $site,
 	'csrf' => sha1(date('H')),
-	'form' => $data,
 	'pagseguro_id' => getIDPagseguro()
 ];
 
