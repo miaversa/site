@@ -18,9 +18,9 @@
 	<script src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
 	<script>
 		PagSeguroDirectPayment.setSessionId('{{pagseguro_id}}');
-
 		function boleto(h) {
-			console.log(h);
+			document.getElementById("sender_hash").value = h;
+			document.getElementById('boletoform').submit();
 		}
 	</script>
 {% endif %}

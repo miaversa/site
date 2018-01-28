@@ -9,6 +9,11 @@ if (is_null($email)) {
 
 $data = [];
 
+if('POST' == $_SERVER['REQUEST_METHOD']) {
+	print_r($_POST);
+	exit();
+}
+
 $params = [
 	'site' => $site,
 	'csrf' => sha1(date('H')),

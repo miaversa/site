@@ -3,7 +3,7 @@
 {% block main %}
 	<section class="center pa3 cf">
 		<h2>Pagamento</h2>
-		<form method="post">
+		<form id="boletoform" method="post">
 			<input id="sender_hash" type="hidden" name="sender_hash" value="" />
 		</form>
 		<button onclick="boleto(PagSeguroDirectPayment.getSenderHash())">Boleto Bancário</button>
